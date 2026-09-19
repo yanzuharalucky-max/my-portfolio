@@ -214,7 +214,7 @@
             width: 210mm;
             height: 297mm;
             max-height: 297mm;
-            padding: 12mm 13mm 10mm 13mm;
+            padding: 10mm 13mm 8mm 13mm;
             background: #ffffff;
             box-sizing: border-box;
             display: flex;
@@ -230,8 +230,8 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            padding-bottom: 9px;
-            margin-bottom: 9px;
+            padding-bottom: 7px;
+            margin-bottom: 7px;
             border-bottom: 2px solid var(--color-slate-200);
             position: relative;
         }
@@ -366,7 +366,7 @@
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6.5px;
         }
 
         .col-right {
@@ -374,7 +374,7 @@
             min-width: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6.5px;
         }
 
         /* ==========================================================================
@@ -539,7 +539,7 @@
            KOLOM KANAN: PENGALAMAN PROYEK & PENGAKUAN PUBLIK
            ========================================================================== */
         .project-item {
-            margin-bottom: 7px;
+            margin-bottom: 5px;
             position: relative;
         }
 
@@ -596,7 +596,7 @@
 
         .bullets-list {
             margin-left: 13px;
-            margin-bottom: 4px;
+            margin-bottom: 2.5px;
         }
 
         .bullets-list li {
@@ -648,43 +648,84 @@
             font-size: 6.5pt;
         }
 
-        /* Card Publikasi Khusus */
+        /* Card Publikasi Ilmiah & Riset */
         .pub-card {
-            background: linear-gradient(to right, rgba(2, 132, 199, 0.05), transparent);
+            background: linear-gradient(to right, rgba(2, 132, 199, 0.04), #ffffff);
             border: 1px solid var(--color-slate-200);
-            border-left: 3.5px solid #0284c7;
+            border-left: 3.5px solid var(--color-cyan-tech);
             border-radius: 5px;
-            padding: 6px 8px;
+            padding: 5px 7px;
         }
 
         .pub-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
 
         .pub-title {
-            font-size: 8.5pt;
+            font-size: 7.7pt;
             font-weight: 800;
+            color: var(--color-deep-slate);
+            line-height: 1.22;
+        }
+
+        .pub-authors {
+            font-size: 7pt;
+            color: var(--color-slate-600);
+            margin-bottom: 1.5px;
+            line-height: 1.25;
+        }
+
+        .pub-authors strong {
             color: var(--color-deep-slate);
         }
 
-        .pub-badge-date {
-            font-size: 7pt;
-            font-weight: 700;
-            color: #0369a1;
-            background: var(--color-cyan-light);
-            padding: 1px 5px;
-            border-radius: 4px;
+        .pub-journal-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            font-size: 6.9pt;
+            color: var(--color-cyan-tech);
+            font-weight: 600;
+            margin-bottom: 2px;
         }
 
-        .pub-desc {
-            font-size: 7.5pt;
-            line-height: 1.38;
+        .pub-journal-name {
+            font-style: italic;
+        }
+
+        .pub-sep {
+            color: var(--color-slate-400);
+        }
+
+        .pub-issn-badge {
+            background: var(--color-slate-100);
             color: var(--color-slate-700);
+            border: 1px solid var(--color-slate-200);
+            font-size: 6.4pt;
+            font-weight: 700;
+            padding: 0.5px 4px;
+            border-radius: 3px;
+        }
+
+        .pub-bullets {
+            margin-left: 12px;
+            margin-bottom: 0;
+        }
+
+        .pub-bullets li {
+            font-size: 7.2pt;
+            line-height: 1.34;
+            color: var(--color-slate-700);
+            margin-bottom: 1.5px;
             text-align: justify;
-            margin-top: 2px;
+        }
+
+        .pub-bullets li:last-child {
+            margin-bottom: 0;
         }
 
         /* Footer Aksen Minimalis */
@@ -735,7 +776,7 @@
                 height: 297mm !important;
                 max-height: 297mm !important;
                 margin: 0 !important;
-                padding: 12mm 13mm 10mm 13mm !important;
+                padding: 10mm 13mm 8mm 13mm !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 page-break-after: avoid !important;
@@ -949,7 +990,7 @@
                     <p class="profile-summary-text">
                         Software Engineer & Frontend Specialist berbasis di Jakarta dengan spesialisasi rekayasa sistem
                         web terstruktur, performa tinggi, dan antarmuka responsif. Memiliki rekam jejak memimpin
-                        pengembangan platform lelang digital skala komersial yang dipublikasikan media nasional.
+                        pengembangan platform lelang digital skala komersial yang dipublikasikan dalam jurnal ilmiah nasional (IJIMR).
                         Didukung pemahaman mendalam arsitektur jaringan bersertifikasi resmi Cisco CCNA untuk menjamin
                         keandalan integrasi sistem end-to-end.
                     </p>
@@ -1075,7 +1116,7 @@
                         <div class="project-role-bar">
                             <span>Lead Developer & System Architect</span>
                             <span>•</span>
-                            <span class="role-highlight-badge">Liputan Media Nasional</span>
+                            <span class="role-highlight-badge">Publikasi Riset Ilmiah (IJIMR)</span>
                         </div>
                         <ul class="bullets-list">
                             <li>Memimpin perancangan dan implementasi <strong>arsitektur platform lelang online
@@ -1156,7 +1197,7 @@
                     </article>
                 </div>
 
-                <!-- 2. Pengakuan Publik & Publikasi -->
+                <!-- 2. Publikasi Ilmiah & Riset -->
                 <div class="section-block">
                     <div class="section-header">
                         <svg class="section-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1164,22 +1205,25 @@
                             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                         </svg>
-                        <h2 class="section-title">Pengakuan Publik & Validasi</h2>
+                        <h2 class="section-title">Publikasi Ilmiah & Riset</h2>
                     </div>
 
                     <div class="pub-card">
                         <div class="pub-header">
-                            <div class="pub-title">Liputan Media Nasional TangselXpress</div>
-                            <span class="pub-badge-date">April 2026</span>
+                            <h3 class="pub-title">Implementasi Platform Lelang Digital Berbasis Web Dengan Sistem Berlangganan Pada PT Segara Lentera Teknologi (SELENO)</h3>
                         </div>
-                        <div class="project-role-bar" style="margin-bottom: 2px;">
-                            <span>Inovasi Digital Karya Mahasiswa — Platform Seleno</span>
+                        <div class="pub-authors">
+                            <strong>Lucky Yan Zuhara (Penulis Pertama)</strong>, Lintar Yan Zuhara, Jupron
                         </div>
-                        <p class="pub-desc">
-                            Dipublikasikan dan diakui oleh portal berita nasional <strong>TangselXpress</strong> sebagai
-                            inovator dalam pengembangan arsitektur web aplikasi lelang modern yang meningkatkan
-                            transparansi lelang daring serta mudah diakses masyarakat luas.
-                        </p>
+                        <div class="pub-journal-row">
+                            <span class="pub-journal-name">Indonesian Journal of Innovation Multidisipliner Research (Vol. 4, No. 2, 2026)</span>
+                            <span class="pub-sep">•</span>
+                            <span class="pub-issn-badge">E-ISSN: 3025-0994</span>
+                        </div>
+                        <ul class="bullets-list pub-bullets">
+                            <li>Merancang arsitektur <strong>MVC full-stack</strong> dengan Laravel, MariaDB, dan integrasi payment gateway Midtrans.</li>
+                            <li>Menguji keandalan sistem multi-role (Admin, Buyer, Vendor) menggunakan metode Waterfall dan <strong>Black Box Testing</strong> dengan hasil <strong>100% valid</strong> pada 8 skenario pengujian utama.</li>
+                        </ul>
                     </div>
                 </div>
 
