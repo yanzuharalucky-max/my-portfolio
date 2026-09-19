@@ -976,6 +976,17 @@
     <div class="footer-right" id="slideCounter">PAGE | 01</div>
   </footer>
 
+  <!-- ====== Floating Action Button: Beri Nilai & Masukan ====== -->
+  <button id="feedbackFab" class="feedback-fab" onclick="openFeedbackModal()" aria-label="Beri Nilai &amp; Masukan"
+    data-tooltip="Beri Nilai &amp; Masukan Portofolio">
+    <span class="fab-icon-wrap">
+      <svg class="fab-star" width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+    </span>
+    <span class="fab-text">Beri Masukan</span>
+  </button>
+
   <div id="toast" class="toast">Tersalin ke clipboard!</div>
 
   <!-- ====== Micro-Tooltip Container ====== -->
@@ -1195,9 +1206,109 @@
     </div>
   </div>
 
+  <!-- ====== Feedback & Rating Modal ====== -->
+  <div id="feedback-overlay" class="cmd-modal-overlay feedback-modal-overlay" aria-hidden="true"
+    onclick="if(event.target===this) closeFeedbackModal()">
+    <div class="cmd-palette-card feedback-card" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+      <div class="cmd-header feedback-modal-header">
+        <div class="feedback-badge">
+          <span class="feedback-badge-dot"></span>
+          <span>EVALUASI // FEEDBACK SYSTEM</span>
+        </div>
+        <button type="button" class="cmd-badge-esc feedback-esc-btn" onclick="closeFeedbackModal()" aria-label="Tutup Modal" data-tooltip="Tutup (ESC)">ESC</button>
+      </div>
+
+      <div class="feedback-card-body">
+        <!-- Form View -->
+        <div id="feedbackFormView">
+          <h3 id="feedbackTitle" class="feedback-title">Bagaimana Pengalaman Anda Menjelajah Portofolio Ini?</h3>
+          <p class="feedback-subtitle">Penilaian dan masukan Anda sangat berharga untuk terus mengoptimalkan kualitas rekayasa dan antarmuka web ini.</p>
+
+          <!-- Interactive Star Rating -->
+          <div class="feedback-rating-box">
+            <div class="star-rating" id="starRating" role="radiogroup" aria-label="Penilaian Bintang" onmouseleave="resetStarHighlight()">
+              <button type="button" class="star-btn selected" data-value="1" onclick="setRating(1)" onmouseenter="highlightStars(1)" aria-label="1 Bintang" title="1 Bintang - Kurang">
+                <svg class="star-svg" width="30" height="30" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+              <button type="button" class="star-btn selected" data-value="2" onclick="setRating(2)" onmouseenter="highlightStars(2)" aria-label="2 Bintang" title="2 Bintang - Cukup">
+                <svg class="star-svg" width="30" height="30" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+              <button type="button" class="star-btn selected" data-value="3" onclick="setRating(3)" onmouseenter="highlightStars(3)" aria-label="3 Bintang" title="3 Bintang - Baik">
+                <svg class="star-svg" width="30" height="30" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+              <button type="button" class="star-btn selected" data-value="4" onclick="setRating(4)" onmouseenter="highlightStars(4)" aria-label="4 Bintang" title="4 Bintang - Sangat Baik">
+                <svg class="star-svg" width="30" height="30" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+              <button type="button" class="star-btn selected" data-value="5" onclick="setRating(5)" onmouseenter="highlightStars(5)" aria-label="5 Bintang" title="5 Bintang - Luar Biasa!">
+                <svg class="star-svg" width="30" height="30" viewBox="0 0 24 24">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+            </div>
+            <div class="rating-text-feedback" id="ratingDesc">5 Bintang — Luar Biasa &amp; Mengesankan! ⭐</div>
+          </div>
+
+          <!-- Input Fields -->
+          <form id="feedbackForm" onsubmit="handleFeedbackSubmit(event)">
+            <div class="feedback-group">
+              <label for="feedbackName" class="feedback-label">
+                <span>Nama / Instansi</span>
+                <span class="label-opt">(Opsional)</span>
+              </label>
+              <input type="text" id="feedbackName" name="name" class="feedback-form-input"
+                placeholder="Misal: Budi / Tech Lead (Boleh Anonim)" autocomplete="name">
+            </div>
+
+            <div class="feedback-group">
+              <label for="feedbackMessage" class="feedback-label">
+                <span>Kritik, Saran &amp; Kesan</span>
+                <span class="label-req">*</span>
+              </label>
+              <textarea id="feedbackMessage" name="feedback" class="feedback-form-textarea" rows="3"
+                placeholder="Kritik, saran, atau kesan Anda untuk pengembangan portofolio ini..." required></textarea>
+            </div>
+
+            <div class="feedback-footer-actions">
+              <button type="button" class="btn-feedback-cancel" onclick="closeFeedbackModal()">Batal</button>
+              <button type="submit" id="feedbackSubmitBtn" class="btn-feedback-submit">
+                <span class="submit-spinner" style="display: none;"></span>
+                <span class="submit-btn-text">Kirim Evaluasi</span>
+                <svg class="submit-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success Notification State -->
+        <div id="feedbackSuccessView" class="feedback-success-card" style="display: none;">
+          <div class="success-ring-wrap">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h4 class="success-heading">Terima kasih banyak atas penilaian dan masukannya! 🙏</h4>
+          <p class="success-subtext">Masukan Anda telah dialihkan ke WhatsApp dan sangat berarti untuk pengembangan portofolio ini.</p>
+          <span class="success-timer-badge">Membuka WhatsApp &amp; menutup otomatis...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ====== Scripts ====== -->
   <script>
-    // --- Modals Logic (Project Preview & CV Peek) ---
+    // --- Modals Logic (Project Preview & CV Peek & Feedback) ---
     function openProjectPreview() {
       const overlay = document.getElementById('project-preview-overlay');
       if (overlay) {
@@ -1232,11 +1343,141 @@
       }
     }
 
-    // Bind escape key for new modals
+    // --- Feedback & Rating Modal Logic ---
+    let currentRating = 5;
+    const ratingLabels = [
+      '1 Bintang — Perlu Banyak Peningkatan',
+      '2 Bintang — Cukup, Ada Masukan',
+      '3 Bintang — Baik & Fungsional',
+      '4 Bintang — Sangat Bagus & Menarik!',
+      '5 Bintang — Luar Biasa & Mengesankan! ⭐'
+    ];
+
+    function openFeedbackModal() {
+      const overlay = document.getElementById('feedback-overlay');
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
+    }
+
+    function closeFeedbackModal() {
+      const overlay = document.getElementById('feedback-overlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    function setRating(val) {
+      currentRating = val;
+      const stars = document.querySelectorAll('#starRating .star-btn');
+      stars.forEach((star, idx) => {
+        if (idx < val) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+        star.classList.remove('active-hover');
+      });
+      const descEl = document.getElementById('ratingDesc');
+      if (descEl) descEl.textContent = ratingLabels[val - 1] || `${val} Bintang`;
+      if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+    }
+
+    function highlightStars(val) {
+      const stars = document.querySelectorAll('#starRating .star-btn');
+      stars.forEach((star, idx) => {
+        if (idx < val) {
+          star.classList.add('active-hover');
+        } else {
+          star.classList.remove('active-hover');
+        }
+      });
+      const descEl = document.getElementById('ratingDesc');
+      if (descEl) descEl.textContent = ratingLabels[val - 1] || `${val} Bintang`;
+    }
+
+    function resetStarHighlight() {
+      const stars = document.querySelectorAll('#starRating .star-btn');
+      stars.forEach((star, idx) => {
+        star.classList.remove('active-hover');
+        if (idx < currentRating) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+      const descEl = document.getElementById('ratingDesc');
+      if (descEl) descEl.textContent = ratingLabels[currentRating - 1] || `${currentRating} Bintang`;
+    }
+
+    function handleFeedbackSubmit(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('feedbackName');
+      const msgInput = document.getElementById('feedbackMessage');
+      const formView = document.getElementById('feedbackFormView');
+      const successView = document.getElementById('feedbackSuccessView');
+
+      const feedbackText = msgInput ? msgInput.value.trim() : '';
+      if (!feedbackText) return;
+
+      const senderName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Anonim';
+      const starSymbols = '⭐'.repeat(currentRating);
+
+      // Format rapi pesan WhatsApp dengan identitas, rating, dan masukan
+      const waText = 
+`*EVALUASI & MASUKAN PORTOFOLIO*
+----------------------------------------
+⭐ *Rating Pengalaman:* ${currentRating} dari 5 Bintang (${starSymbols})
+👤 *Nama / Instansi:* ${senderName}
+💬 *Kritik, Saran & Kesan:*
+"${feedbackText}"
+----------------------------------------
+_Dikirim via Formulir Masukan Portofolio Lucky Yan Zuhara_`;
+
+      const waNumber = '6289616054765';
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`;
+
+      // Buka tautan WhatsApp di tab baru
+      window.open(waUrl, '_blank');
+
+      if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+
+      // Tampilkan status notifikasi sukses di modal
+      if (formView) formView.style.display = 'none';
+      if (successView) successView.style.display = 'flex';
+
+      // Tampilkan toast notifikasi di halaman
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = 'Terima kasih banyak atas penilaian dan masukannya! 🙏';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+
+      // Tutup modal secara otomatis setelah 2 detik dan kembalikan formulir ke kondisi awal
+      setTimeout(() => {
+        closeFeedbackModal();
+        setTimeout(() => {
+          if (formView) {
+            const formEl = document.getElementById('feedbackForm');
+            if (formEl) formEl.reset();
+            formView.style.display = 'block';
+          }
+          if (successView) successView.style.display = 'none';
+          setRating(5);
+        }, 400);
+      }, 2000);
+    }
+
+    // Bind escape key for modals
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProjectPreview();
         closeCvPeek();
+        closeFeedbackModal();
       }
     });
 
