@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Lucky Yan Zuhara — Frontend & Software Engineer">
+  <meta property="og:description" content="Portofolio resmi rekayasa antarmuka web modern, clean architecture, dan sistem digital.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Lucky Yan Zuhara — Frontend Developer & Software Engineer</title>
+  <meta name="description"
+    content="Portfolio Lucky Yan Zuhara — Mahasiswa S1 Teknik Informatika Universitas Pamulang yang berfokus pada web development dan UI intuitif.">
+  <meta name="author" content="Lucky Yan Zuhara">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="prevent-scroll">
+
+  <!-- ====== Custom Cyber Cursor & Magnetic Follower ====== -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"></div>
+
+
+  <!-- ====== Splash Screen (Cinematic Cyberpunk Shutter) ====== -->
+  <div id="splash" class="splash-screen">
+    <!-- Dual Cinematic Shutters (Top & Bottom) -->
+    <div class="splash-shutter shutter-top"></div>
+    <div class="splash-shutter shutter-bottom"></div>
+
+    <!-- Scanner Laser Line -->
+    <div class="scanner-line"></div>
+
+    <!-- Radial Aura Glow behind Monogram -->
+    <div class="splash-aura"></div>
+    <div class="splash-ambient"></div>
+
+    <!-- Technical HUD Decals (Corners) -->
+    <div class="splash-decal decal-tl">SYS.CORE // V2.6</div>
+    <div class="splash-decal decal-tr">ACT-SEC_09</div>
+    <div class="splash-decal decal-bl">UID_7734-L</div>
+    <div class="splash-decal decal-br">LOADING...</div>
+
+    <div class="splash-content">
+      <!-- Monogram Badge -->
+      <div class="splash-badge">
+        <div class="splash-monogram">LZ</div>
+      </div>
+      <!-- Typography & Text Masking -->
+      <div class="splash-text-container">
+        <div class="stagger-line"><span class="line-1">WELCOME TO THE DIGITAL SPACE OF</span></div>
+        <div class="stagger-line"><span class="line-2 shimmer-name">LUCKY YAN ZUHARA</span></div>
+        <div class="stagger-line"><span class="line-3">FRONTEND & SOFTWARE ENGINEER</span></div>
+      </div>
+      <!-- Numeric HUD Counter & Progress Precision -->
+      <div class="splash-hud">
+        <span class="hud-left">[ INITIALIZING ]</span>
+        <div class="hud-track">
+          <div class="hud-fill">
+            <div class="hud-glow-head"></div>
+          </div>
+        </div>
+        <span class="hud-right" id="splashCounter">00%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Header ====== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand" aria-label="Lucky Yan Zuhara home">
+        <img src="LZ.png" alt="Logo LZ" width="32" height="32">
+        <div>
+          <strong>Lucky Yan Zuhara</strong>
+          <span>Software Engineer</span>
+        </div>
+      </a>
+
+
+      <nav class="main-nav nav-links">
+        <div class="nav-indicator"></div>
+        <a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a>
+        <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="cmd-palette-trigger" class="cmd-trigger-btn" title="Command Palette (Ctrl + K)" aria-label="Open Command Palette" data-tooltip="Pintasan Perintah (Ctrl + K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="cmd-kbd">⌘K</span>
+        </button>
+        <div class="lang-switch" id="lang-toggle" data-tooltip="Pilih Bahasa (ID / EN)">
+          <button class="lang-btn active" data-lang="id">ID</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button id="theme-toggle" class="theme-btn" title="Ganti Tema (Terang / Gelap)" aria-label="Toggle Theme" data-tooltip="Ganti Tema (Gelap / Terang)">
+          <span class="theme-icon sun-icon">☀️</span>
+          <span class="theme-icon moon-icon">🌙</span>
+        </button>
+        <button id="sfx-toggle" class="sfx-btn" title="Toggle UI Sound" data-tooltip="Efek Suara Tombol">🔊 SFX</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round">
+            <line x1="3" y1="5" x2="17" y2="5" />
+            <line x1="3" y1="10" x2="17" y2="10" />
+            <line x1="3" y1="15" x2="17" y2="15" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" data-i18n="nav_about">Tentang</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#projects" data-i18n="nav_projects">Proyek</a>
+      <a href="#experience" data-i18n="nav_experience">Pengalaman</a>
+      <a href="#contact" data-i18n="nav_contact">Kontak</a>
+    </div>
+  </header>
+
+  <!-- ====== Main Content ====== -->
+  <main>
+
+    <!-- Hero -->
+    <section id="home" class="hero section slide">
+      <div class="hero-glow" id="heroSpotlight"></div>
+      <canvas id="network-bg"></canvas>
+      <div class="hero-copy anim-2">
+        <div class="hero-kicker-group">
+          <div class="greeting-badge" data-tooltip="Sapaan &amp; Identitas Utama">
+            <span class="wave-icon">👋</span>
+            <span class="greeting-text" data-i18n="hero_greeting">Halo! Saya <strong class="name-highlight">Lucky Yan Zuhara</strong></span>
+          </div>
+          <div class="status-badge" data-tooltip="Status Ketersediaan Karir &amp; Magang">
+            <span class="status-dot"></span>
+            <span class="status-text" data-i18n="hero_status">Open to Work / Internship</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title" data-i18n="hero_title">Membangun <span class="gradient-text-elite">Sistem Web Modern</span> yang Skalabel, Cepat, dan Berpusat pada Pengguna.</h1>
+
+        <p class="hero-text hero-desc" data-i18n="hero_bio">
+          Software Engineer &amp; Frontend Developer dengan spesialisasi rekayasa arsitektur web bersih dan performa tinggi. Berpengalaman memimpin delivery platform lelang digital skala produksi, integrasi API sistem data terpusat, serta didukung fondasi jaringan bersertifikasi Cisco CCNA.
+        </p>
+
+        <div class="hero-actions hero-cta">
+          <a href="#projects" class="btn btn-primary-elite">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3l5 5-5 5" />
+            </svg>
+            <span data-i18n="hero_btn_projects">Lihat Proyek</span>
+          </a>
+          <a href="cv-lucky-yan-zuhara.pdf" class="btn btn-secondary-elite" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10" />
+            </svg>
+            <span data-i18n="hero_btn_cv">Unduh CV</span>
+          </a>
+        </div>
+
+        <div class="hero-bento">
+          <div class="hero-bento-card" data-tooltip="Lokasi Domisili Utama">
+            <span class="hero-bento-label" data-i18n="hero_bento_loc_label">LOKASI</span>
+            <span class="hero-bento-value" data-i18n="hero_bento_loc_val">Jakarta Barat</span>
+          </div>
+          <div class="hero-bento-card" data-tooltip="Fokus &amp; Spesialisasi Web">
+            <span class="hero-bento-label" data-i18n="hero_bento_focus_label">FOKUS</span>
+            <span class="hero-bento-value" data-i18n="hero_bento_focus_val">Frontend &amp; UI/UX</span>
+          </div>
+          <div class="hero-bento-card" data-tooltip="Program Studi &amp; Jenjang">
+            <span class="hero-bento-label" data-i18n="hero_bento_edu_label">PENDIDIKAN</span>
+            <span class="hero-bento-value" data-i18n="hero_bento_edu_val">S1 Teknik Informatika</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual anim-3">
+        <div class="giant-bg-text">PORTOFOLIO</div>
+        <div class="aura-glow"></div>
+        <div class="profile-card-elite hero-photo-card">
+          <div class="card-glare"></div>
+          <div class="glass-badge top-left" data-tooltip="Domisili Utama &amp; Tahun Berjalan">JAKARTA, ID // 2026</div>
+          <img src="luki.jpeg" alt="Foto Lucky Yan Zuhara" loading="eager">
+          <div class="glass-badge bottom-right" data-tooltip="Peran Professional Candidate">SOFTWARE ENGINEER</div>
+        </div>
+      </div>
+
+      <!-- Infinite Marquee Tech Ticker -->
+      <div class="tech-marquee anim-4">
+        <div class="marquee-wrapper">
+          <div class="marquee-track">
+            <div class="marquee-item">
+              <span class="marquee-tech"><i class="devicon-cplusplus-plain colored"></i> <span>C++</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-java-plain colored"></i> <span>JAVA</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-javascript-plain colored"></i> <span>JAVASCRIPT</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-laravel-original colored"></i> <span>LARAVEL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-php-plain colored"></i> <span>PHP</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-html5-plain colored"></i> <i class="devicon-css3-plain colored"></i> <span>HTML5/CSS3</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M4 14v4M8 10v8M12 6v12M16 10v8M20 14v4"/>
+                </svg>
+                <span>CISCO CCNA</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>REST API</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-mysql-original colored"></i> <span>MYSQL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-cplusplus-plain colored"></i> <span>C++</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-java-plain colored"></i> <span>JAVA</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-javascript-plain colored"></i> <span>JAVASCRIPT</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-laravel-original colored"></i> <span>LARAVEL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-php-plain colored"></i> <span>PHP</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-html5-plain colored"></i> <i class="devicon-css3-plain colored"></i> <span>HTML5/CSS3</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M4 14v4M8 10v8M12 6v12M16 10v8M20 14v4"/>
+                </svg>
+                <span>CISCO CCNA</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>REST API</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-mysql-original colored"></i> <span>MYSQL</span></span><span class="marquee-dot">•</span>
+            </div>
+            <div class="marquee-item">
+              <span class="marquee-tech"><i class="devicon-cplusplus-plain colored"></i> <span>C++</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-java-plain colored"></i> <span>JAVA</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-javascript-plain colored"></i> <span>JAVASCRIPT</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-laravel-original colored"></i> <span>LARAVEL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-php-plain colored"></i> <span>PHP</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-html5-plain colored"></i> <i class="devicon-css3-plain colored"></i> <span>HTML5/CSS3</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M4 14v4M8 10v8M12 6v12M16 10v8M20 14v4"/>
+                </svg>
+                <span>CISCO CCNA</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>REST API</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-mysql-original colored"></i> <span>MYSQL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-cplusplus-plain colored"></i> <span>C++</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-java-plain colored"></i> <span>JAVA</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-javascript-plain colored"></i> <span>JAVASCRIPT</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-laravel-original colored"></i> <span>LARAVEL</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-php-plain colored"></i> <span>PHP</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-html5-plain colored"></i> <i class="devicon-css3-plain colored"></i> <span>HTML5/CSS3</span></span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M4 14v4M8 10v8M12 6v12M16 10v8M20 14v4"/>
+                </svg>
+                <span>CISCO CCNA</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech">
+                <svg class="marquee-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>REST API</span>
+              </span><span class="marquee-dot">•</span>
+              <span class="marquee-tech"><i class="devicon-mysql-original colored"></i> <span>MYSQL</span></span><span class="marquee-dot">•</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section slide split-bento">
+      <div class="bento-left anim-1">
+        <div class="bento-visual">
+          <img src="saya.jpeg" alt="Aktivitas Lucky Yan Zuhara" loading="lazy">
+          <div class="floating-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: -2px;">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            TECH ENTHUSIAST & BUILDER
+          </div>
+        </div>
+      </div>
+      <div class="bento-right">
+        <div class="bento-header anim-2">
+          <div class="profile-kicker">
+            <span class="pulse-indicator"></span>
+            <span data-i18n="about_kicker">TENTANG SAYA // ENGINEERING PROFILE</span>
+          </div>
+          <h2 class="bento-title">Lucky Yan Zuhara</h2>
+          <h3 class="bento-role">Frontend Developer &amp; Software Engineer</h3>
+        </div>
+        <div class="bento-narrative anim-3">
+          <h2 class="about-lead" data-i18n="about_lead">
+            Berfokus pada rekayasa antarmuka modern berperforma tinggi, arsitektur terstruktur, dan sistem web siap produksi.
+          </h2>
+          <p class="about-desc" data-i18n="about_desc">
+            Mahasiswa S1 Teknik Informatika Universitas Pamulang dengan pengalaman nyata merancang dan memimpin pengembangan platform lelang digital end-to-end yang diliput media nasional TangselXpress. Memadukan keahlian frontend interaktif, integrasi RESTful API, publikasi penelitian ilmiah, serta fondasi infrastruktur jaringan bersertifikasi resmi Cisco CCNA.
+          </p>
+          <div class="impact-badges">
+            <span class="impact-pill" data-i18n="about_badge1">🚀 End-to-End Delivery</span>
+            <span class="impact-pill" data-i18n="about_badge2">📜 Cisco CCNA Certified</span>
+            <span class="impact-pill" data-i18n="about_badge3">📰 National Press Validated</span>
+          </div>
+        </div>
+        <div class="bento-pillars anim-4">
+          <div class="pillar-card info-card bento-box" data-tooltip="Pendidikan Tinggi Resmi Aktif">
+            <span class="pillar-label" data-i18n="about_pillar1_label">PENDIDIKAN RESMI</span>
+            <strong class="pillar-value" data-i18n="about_pillar1_val">S1 Teknik Informatika</strong>
+            <span class="pillar-desc" data-i18n="about_pillar1_desc">Universitas Pamulang (Aktif)</span>
+          </div>
+          <div class="pillar-card info-card bento-box" data-tooltip="Kumpulan Bahasa &amp; Tools Utama">
+            <span class="pillar-label" data-i18n="about_pillar2_label">CORE STACK</span>
+            <strong class="pillar-value" data-i18n="about_pillar2_val">Frontend &amp; Backend API</strong>
+            <span class="pillar-desc" data-i18n="about_pillar2_desc">JS (ES6+), PHP, Python, MySQL</span>
+          </div>
+          <div class="pillar-card info-card bento-box" data-tooltip="Siap Untuk Rekrutmen &amp; Internship">
+            <span class="pillar-label" data-i18n="about_pillar3_label">STATUS KARIR</span>
+            <strong class="pillar-value" data-i18n="about_pillar3_val">Open to Work / Internship <span class="status-dot"
+                style="margin-left: 6px;"></span></strong>
+            <span class="pillar-desc" data-i18n="about_pillar3_desc">Siap Magang / Kerja</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section slide">
+      <div class="section-heading anim-1">
+        <span class="section-label" data-i18n="skills_label">Skill &amp; Technologies</span>
+        <h2 data-i18n="skills_heading">Keahlian teknis dan alat yang dikuasai</h2>
+      </div>
+      <div class="skills-editorial anim-2">
+        <div class="skills-main-col">
+          <div class="skills-grid bento-stack">
+            <div class="tech-card tech-cpp" data-tech="cpp" data-tooltip="C++: Rekayasa Sistem Berkinerja Tinggi &amp; Konsep OOP">
+              <i class="devicon-cplusplus-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">C++</h3>
+                <span class="tech-tag" data-i18n="tech_cpp_tag">System &amp; OOP</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-java" data-tech="java" data-tooltip="Java (NetBeans): Pemrograman Berorientasi Objek &amp; Aplikasi Desktop">
+              <i class="devicon-java-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">Java (NetBeans)</h3>
+                <span class="tech-tag" data-i18n="tech_java_tag">Core &amp; Desktop App</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-js" data-tech="javascript" data-tooltip="JavaScript (ES6+): Logika Asinkron, Rekayasa DOM &amp; Interaktivitas Web">
+              <i class="devicon-javascript-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">JavaScript (ES6+)</h3>
+                <span class="tech-tag" data-i18n="tech_js_tag">Dynamic &amp; Async Logic</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-php" data-tech="php" data-tooltip="PHP: Pemrosesan Sisi Server, Backend Web &amp; Database">
+              <i class="devicon-php-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">PHP</h3>
+                <span class="tech-tag" data-i18n="tech_php_tag">Server-Side &amp; Database</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-laravel" data-tech="laravel" data-tooltip="Laravel: Arsitektur MVC, Eloquent ORM &amp; Layanan REST API">
+              <i class="devicon-laravel-original colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">Laravel</h3>
+                <span class="tech-tag" data-i18n="tech_laravel_tag">MVC Framework &amp; REST API</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-html5" data-tech="html5" data-tooltip="HTML5: Fondasi Web Berbasis Semantik &amp; Aksesibilitas Modern">
+              <i class="devicon-html5-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">HTML5</h3>
+                <span class="tech-tag" data-i18n="tech_html5_tag">Semantic Architecture</span>
+              </div>
+            </div>
+
+            <div class="tech-card tech-css3" data-tech="css3" data-tooltip="CSS3: Desain Responsif Modern, Animasi Halus &amp; Glassmorphism">
+              <i class="devicon-css3-plain colored"></i>
+              <div class="tech-info">
+                <h3 class="tech-name">CSS3</h3>
+                <span class="tech-tag" data-i18n="tech_css3_tag">Modern Responsive &amp; Glassmorphism</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tools-row tools-stack">
+            <span class="tools-label" data-i18n="tools_label">DATABASE &amp; DEV TOOLS:</span>
+            <div class="tools-badges">
+              <span class="tool-pill" data-tooltip="MySQL: Relational Database Management System"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+              <span class="tool-pill" data-tooltip="Git: Distributed Version Control System"><i class="devicon-git-plain colored"></i> Git</span>
+              <span class="tool-pill" data-tooltip="XAMPP: Apache + MariaDB + PHP Local Server Stack">⚙️ XAMPP Local Server</span>
+              <span class="tool-pill" data-tooltip="Apache NetBeans: Java &amp; Desktop IDE">☕ Apache NetBeans</span>
+              <span class="tool-pill" data-tooltip="Visual Studio Code: Code Editor &amp; Debugging Environment"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-credential">
+          <div class="credential-card">
+            <div class="cred-header">
+              <span class="cred-status"><span class="status-dot"></span><span data-i18n="skills_cred_status">VERIFIED CREDENTIAL // 2026</span></span>
+            </div>
+            <div class="cred-body">
+              <h4 class="cred-title" data-i18n="skills_cred_title">Cisco Certified</h4>
+              <p class="cred-desc" data-i18n="skills_cred_desc">CCNA Switching, Routing &amp; Wireless Foundation</p>
+              <span class="cred-id">ID: 161937ce-1479-4d90-aa8b-110c7b3904f5</span>
+
+              <div class="cred-badges">
+                <span class="cred-badge" data-tooltip="C++ System &amp; Object Oriented Programming">C++</span>
+                <span class="cred-badge" data-tooltip="Java Desktop &amp; Core Architecture">Java</span>
+                <span class="cred-badge" data-tooltip="JavaScript ES6+ &amp; Async Logic">JS (ES6+)</span>
+                <span class="cred-badge" data-tooltip="PHP Server-side Scripting &amp; Web Backend">PHP</span>
+                <span class="cred-badge" data-tooltip="Laravel MVC &amp; RESTful API">Laravel</span>
+                <span class="cred-badge" data-tooltip="Semantic HTML5 &amp; Modern Responsive CSS3">HTML5/CSS3</span>
+              </div>
+
+              <div class="cred-actions">
+                <a href="CCNA.pdf" target="_blank" class="cred-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                  <span data-i18n="skills_cred_cert">Sertifikat Materi</span>
+                </a>
+                <a href="CCNA-_Switching.pdf" target="_blank" class="cred-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span data-i18n="skills_cred_verify">Verifikasi Unpam</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section slide">
+      <div class="section-heading anim-1">
+        <span class="section-label">Featured Projects</span>
+        <h2 data-i18n="projects_heading">Pengalaman Akademik & Proyek</h2>
+      </div>
+      <div class="projects-grid anim-2">
+
+        <article class="project-card featured">
+          <div class="card-preview" onclick="openProjectPreview()" style="cursor: pointer;" data-tooltip="Klik untuk pratinjau arsitektur">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+            </div>
+            <div class="window-body">
+              <div class="watermark">&lt;/&gt;</div>
+            </div>
+          </div>
+          <div class="project-top">
+            <span class="project-tag neon-badge" data-tooltip="Kategori Studi Kasus Proyek Enterprise">ENTERPRISE CASE STUDY</span>
+          </div>
+          <h3 data-i18n="proj1_title">Platform Lelang Digital Terintegrasi</h3>
+          <a href="https://tangselxpress.com/2026/04/29/mahasiswa-unpam-rancang-website-seleno-lelang-sebagai-platform-lelang-digital-berbasis-web/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="media-coverage-badge">
+            <span class="media-icon">📰</span>
+            <span class="media-text" data-i18n="proj1_media">Diliput Media: <strong>TangselXpress</strong></span>
+            <span class="arrow-ext">↗</span>
+          </a>
+          <p data-i18n="proj1_desc">Sistem web lelang berbasis langganan dengan integrasi basis data real-time, validasi transaksi aman, dan antarmuka dashboard responsif.</p>
+          
+          <!-- Performance Metrics -->
+          <div class="project-metrics">
+            <span class="metric-badge">⚡ Sub-second Latency</span>
+            <span class="metric-badge">🛡️ Role-Based Auth</span>
+            <span class="metric-badge">📊 Real-time Sync</span>
+          </div>
+
+          <div class="project-stack-pills">
+            <span class="stack-pill" data-tooltip="Bahasa Backend Server &amp; Routing">PHP</span>
+            <span class="stack-pill" data-tooltip="Sistem Manajemen Basis Data Relasional">MySQL</span>
+            <span class="stack-pill" data-tooltip="Arsitektur API Client-Server RESTful">REST API</span>
+          </div>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener" class="btn-source">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+              </svg>
+              Source Code
+            </a>
+            <button type="button" class="btn-demo" onclick="openProjectPreview()">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-preview">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+            </div>
+            <div class="window-body">
+              <div class="watermark">{ }</div>
+            </div>
+          </div>
+          <div class="project-top">
+            <span class="project-tag" data-tooltip="Bidang Sistem Pakar &amp; Backend Reasoning">EXPERT SYSTEM // BACKEND</span>
+          </div>
+          <h3 data-i18n="proj2_title">Sistem Pakar Diagnosa Medis</h3>
+          <p data-i18n="proj2_desc">Aplikasi inferensi berbasis aturan (rule-based reasoning) untuk memetakan gejala klinis pasien dan
+            menghasilkan diagnosa awal akurat.</p>
+          <div class="project-stack-pills">
+            <span class="stack-pill" data-tooltip="Micro-framework Web Python Flask">Python (Flask)</span>
+            <span class="stack-pill" data-tooltip="Struktur &amp; Styling Antarmuka Web">HTML5/CSS3</span>
+            <span class="stack-pill" data-tooltip="Pola Pemisahan Kode Terstruktur">Modular Architecture</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yanzuharalucky-max" target="_blank" rel="noopener" class="btn-source">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+              </svg>
+              Source Code
+            </a>
+            <a href="https://sistem-pakar-rule-model-1--yanzuharalucky.replit.app" target="_blank" rel="noopener"
+              class="btn-demo">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-preview">
+            <div class="window-header">
+              <div class="window-dots">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+            </div>
+            <div class="window-body">
+              <div class="watermark">$</div>
+            </div>
+          </div>
+          <div class="project-top">
+            <span class="project-tag" data-tooltip="Kategori Aplikasi Keuangan Web Interaktif">FINANCIAL WEB APP</span>
+          </div>
+          <h3 data-i18n="proj3_title">Keuangan Saku (Manajemen Finansial)</h3>
+          <p data-i18n="proj3_desc">Aplikasi pencatatan dan monitoring arus kas interaktif dengan visualisasi pengeluaran dan tata letak
+            responsif adaptif.</p>
+          <div class="project-stack-pills">
+            <span class="stack-pill" data-tooltip="Logika Interaktif Client-side Vanilla JS">JavaScript</span>
+            <span class="stack-pill" data-tooltip="Tata Letak Responsif Flexbox &amp; Grid">Modern CSS Flex/Grid</span>
+            <span class="stack-pill" data-tooltip="Penyimpanan Data Sisi Klien Browser">Local Storage</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yanzuharalucky-max" target="_blank" rel="noopener" class="btn-source">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+              </svg>
+              Source Code
+            </a>
+            <a href="https://mysaku.page.gd/" target="_blank" rel="noopener" class="btn-demo">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Experience & Education Timeline -->
+    <section id="experience" class="section slide">
+      <div class="section-heading anim-1">
+        <span class="section-label" data-i18n="exp_heading_label">Perjalanan Karir & Pendidikan</span>
+        <h2 data-i18n="exp_heading_title">Pengalaman & Sertifikasi</h2>
+      </div>
+      <div class="timeline anim-2">
+
+        <!-- Pillar 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-elevation experience-card">
+            <div class="timeline-meta">
+              <span class="timeline-date" data-i18n="exp1_date">Mei 2026 – Juni 2026</span>
+              <span class="timeline-badge" data-tooltip="Program Praktik Kerja Lapangan">Internship</span>
+            </div>
+            <h3 class="timeline-role">Web Developer Intern</h3>
+            <h4 class="timeline-company">PT Segara Lentera Teknologi</h4>
+            <p class="timeline-desc" data-i18n="exp1_desc">Merancang dan membangun arsitektur antarmuka sistem lelang digital berbasis web
+              dengan optimasi performa dan alur data responsif.</p>
+            <div class="timeline-tags">
+              <span class="tag" data-tooltip="Framework PHP &amp; RESTful Endpoint">PHP/Laravel</span>
+              <span class="tag" data-tooltip="Optimasi Database Relasional">MySQL</span>
+              <span class="tag" data-tooltip="Interaktivitas Frontend Client-side">JavaScript</span>
+              <span class="tag" data-tooltip="Integrasi Endpoint API Sistem Lelang">REST API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-elevation experience-card">
+            <div class="timeline-meta">
+              <span class="timeline-date">2026</span>
+              <span class="timeline-badge" data-tooltip="Penelitian Akademik Riset Terpublikasi">Research &amp; Paper</span>
+              <span class="timeline-badge-mini" data-tooltip="Publikasi Jurnal Ilmiah Peer-Reviewed Terakreditasi">Peer-Reviewed / Inotera &amp; IJIMR</span>
+            </div>
+            <h3 class="timeline-role" data-i18n="exp2_role">Penulis &amp; Peneliti Sistem Platform Lelang Digital</h3>
+            <h4 class="timeline-company" data-i18n="exp2_company">Publikasi Jurnal Ilmiah Nasional</h4>
+            <p class="timeline-desc" data-i18n="exp2_desc">Mengkaji analisis perancangan sistem dan efisiensi platform lelang digital berbasis
+              web untuk transparansi transaksi.</p>
+            <div class="timeline-tags">
+              <span class="tag" data-tooltip="Metodologi Penelitian Ilmiah">Academic Research</span>
+              <span class="tag" data-tooltip="Perancangan Struktur Software">System Architecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content card-elevation experience-card">
+            <div class="timeline-header-flex">
+              <div class="timeline-info">
+                <div class="timeline-meta">
+                  <span class="timeline-date">Sep 2026</span>
+                  <span class="timeline-badge">Verified Credential</span>
+                </div>
+                <h3 class="timeline-role">Cisco Certified: CCNA (Switching, Routing & Wireless)</h3>
+              </div>
+              <a href="CCNA.pdf" target="_blank" class="timeline-verify-btn" data-i18n="exp3_verify">Lihat Sertifikat ↗</a>
+            </div>
+            <p class="timeline-desc" data-i18n="exp3_desc">Credential ID: <code
+                class="credential-id">161937ce-1479-4d90-aa8b-110c7b3904f5</code> melalui Cisco Networking Academy &
+              Universitas Pamulang.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section slide">
+      <div class="contact-glow"></div>
+      <div class="section-heading anim-1">
+        <span class="section-label"
+          style="font-family: 'JetBrains Mono', monospace; letter-spacing: 0.25em; color: #38bdf8; font-size: 0.85rem;" data-i18n="contact_label">KONTAK
+          // GET IN TOUCH</span>
+        <h2 class="contact-headline" data-i18n="contact_headline">Siap berkolaborasi membangun produk digital masa depan.</h2>
+        <p class="contact-subtext" data-i18n="contact_subtext">Terbuka untuk posisi Frontend Engineer, Software Developer (Full-time / Internship),
+          maupun diskusi rekayasa perangkat lunak.</p>
+      </div>
+
+      <div class="contact-bento anim-2">
+        <!-- Kolom Kiri -->
+        <div class="bento-col-left">
+          <div class="bento-card contact-card direct-email" onclick="copyToClipboard(event, 'yanzuharalucky@gmail.com')"
+            title="Salin Email">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="card-content">
+              <span>Send an Email</span>
+              <h3>yanzuharalucky@gmail.com</h3>
+            </div>
+            <div class="card-action" data-i18n="contact_copy_action">Salin</div>
+          </div>
+
+          <a href="https://wa.me/6289616054765" target="_blank" class="bento-card contact-card direct-wa">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8.05 1.5A6.48 6.48 0 001.5 7.93a6.4 6.4 0 00.88 3.25L1.5 14.5l3.42-.89A6.48 6.48 0 108.05 1.5zm3.72 9.06c-.16.44-.93.85-1.27.9-.35.05-.67.25-2.24-.47a8.14 8.14 0 01-3.28-2.9A3.64 3.64 0 014.2 5.94c0-.7.36-1.05.5-1.2.14-.14.3-.18.4-.18h.36c.12 0 .28-.04.43.33.16.38.54 1.32.59 1.42.05.1.08.22.02.35-.07.13-.1.22-.2.33-.1.12-.2.26-.3.35-.1.1-.2.2-.1.4.12.2.5.82 1.08 1.33.74.65 1.36.86 1.55.95.2.1.3.08.42-.05.12-.13.5-.58.63-.78.14-.2.28-.17.47-.1.2.07 1.23.58 1.44.69.2.1.34.15.4.24.05.1.05.53-.1.97z" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <span>Fast Response</span>
+              <h3>Chat via WhatsApp</h3>
+            </div>
+            <div class="card-action">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Kolom Kanan -->
+        <div class="bento-col-right">
+          <div class="bento-row">
+            <a href="https://linkedin.com/in/yanzuharalucky" target="_blank" class="bento-card contact-card link-card">
+              <div class="card-icon">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                  <path
+                    d="M3.36 13.63H.74V5.16h2.62v8.47zM2.05 4.01a1.52 1.52 0 1 1 0-3.04 1.52 1.52 0 0 1 0 3.04zM13.62 13.63h-2.61V9.5c0-.98-.02-2.25-1.37-2.25-1.37 0-1.58 1.07-1.58 2.18v4.2H5.45V5.16h2.51v1.16h.04c.35-.66 1.2-1.35 2.47-1.35 2.64 0 3.13 1.74 3.13 4.01v4.65z" />
+                </svg>
+              </div>
+              <span class="link-title">LinkedIn</span>
+              <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a href="https://github.com/yanzuharalucky-max" target="_blank" class="bento-card contact-card link-card">
+              <div class="card-icon">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                  <path
+                    d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+                </svg>
+              </div>
+              <span class="link-title">GitHub</span>
+              <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="bento-card contact-card cv-card split-btn-container" style="padding:0; flex-direction:row; display:flex;">
+            <a href="cv-lucky-yan-zuhara.pdf" target="_blank" class="split-main" data-tooltip="Unduh PDF Resmi" style="flex:1; display:flex; align-items:center; gap:10px; padding:20px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-i18n="contact_cv_btn">Unduh CV Resmi (PDF)</span>
+            </a>
+            <button type="button" class="split-action" onclick="openCvPeek()" data-tooltip="Quick Preview" style="padding:0 20px; border-left:1px solid rgba(255,255,255,0.1); background:transparent; color:inherit; border-top:none; border-bottom:none; border-right:none; cursor:pointer;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+
+          <div class="bento-card contact-card status-widget" data-tooltip="Zona Waktu Utama &amp; Status Ketersediaan Kolaborasi">
+            <p><span class="status-dot"></span> BASED IN JAKARTA, ID (WIB / GMT+7)</p>
+            <p class="status-highlight" data-i18n="contact_status_val">STATUS: READY FOR INTERVIEWS &amp; COLLABORATION</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="footer-left">Presented by Lucky Yan Zuhara</div>
+    <div class="footer-right" id="slideCounter">PAGE | 01</div>
+  </footer>
+
+  <div id="toast" class="toast">Tersalin ke clipboard!</div>
+
+  <!-- ====== Micro-Tooltip Container ====== -->
+  <div id="micro-tooltip" class="micro-tooltip" aria-hidden="true"></div>
+
+  <!-- ====== Quick Command Palette Modal ====== -->
+  <div id="cmd-palette-overlay" class="cmd-modal-overlay" aria-hidden="true">
+    <div class="cmd-palette-card" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="cmd-header">
+        <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Ketik perintah atau cari..." autocomplete="off" spellcheck="false">
+        <span class="cmd-badge-esc">ESC</span>
+      </div>
+
+      <div class="cmd-body">
+        <div class="cmd-group-title">PINTASAN CEPAT // QUICK ACTIONS</div>
+        <ul class="cmd-list" id="cmd-list" role="listbox">
+          <li class="cmd-item active" tabindex="0" data-action="cv">
+            <span class="cmd-icon">📄</span>
+            <div class="cmd-text">
+              <strong>Unduh CV Resmi (PDF)</strong>
+              <span>Format PDF lengkap Lucky Yan Zuhara</span>
+            </div>
+            <span class="cmd-enter-icon">↵</span>
+          </li>
+          <li class="cmd-item" tabindex="0" data-action="lelang">
+            <span class="cmd-icon">💻</span>
+            <div class="cmd-text">
+              <strong>Buka Proyek Lelang Digital</strong>
+              <span>Studi kasus platform lelang web</span>
+            </div>
+            <span class="cmd-enter-icon">↵</span>
+          </li>
+          <li class="cmd-item" tabindex="0" data-action="ccna">
+            <span class="cmd-icon">📜</span>
+            <div class="cmd-text">
+              <strong>Lihat Sertifikasi Cisco CCNA</strong>
+              <span>Sertifikat Switching, Routing &amp; Wireless</span>
+            </div>
+            <span class="cmd-enter-icon">↵</span>
+          </li>
+          <li class="cmd-item" tabindex="0" data-action="email">
+            <span class="cmd-icon">✉️</span>
+            <div class="cmd-text">
+              <strong>Salin Alamat Email</strong>
+              <span>yanzuharalucky@gmail.com</span>
+            </div>
+            <span class="cmd-enter-icon">↵</span>
+          </li>
+          <li class="cmd-item" tabindex="0" data-action="theme">
+            <span class="cmd-icon">🌓</span>
+            <div class="cmd-text">
+              <strong>Ganti Tema (Dark / Light)</strong>
+              <span>Ubah tampilan gelap atau terang</span>
+            </div>
+            <span class="cmd-enter-icon">↵</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cmd-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> navigasi</span>
+        <span><kbd>↵</kbd> pilih</span>
+        <span><kbd>ESC</kbd> tutup</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project Quick Preview Modal ====== -->
+  <div id="project-preview-overlay" class="cmd-modal-overlay" aria-hidden="true" onclick="if(event.target===this) closeProjectPreview()">
+    <div class="cmd-palette-card preview-modal">
+      <div class="cmd-header" style="justify-content: space-between; padding: 12px 16px;">
+        <span style="color: #94a3b8; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">// SYSTEM_ARCHITECTURE_PREVIEW</span>
+        <span class="cmd-badge-esc" onclick="closeProjectPreview()" style="cursor: pointer; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #ef4444;">ESC</span>
+      </div>
+      <div class="cmd-body" style="padding: 24px;">
+        <h3 style="margin-top: 0; color: #f8fafc; font-size: 1.4rem; margin-bottom: 8px;">Platform Lelang Digital Terintegrasi</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">Platform web interaktif yang memungkinkan pengguna untuk melakukan penawaran secara real-time. Dibangun dengan arsitektur modular yang memprioritaskan keamanan (Role-Based Access Control) dan performa responsif.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+          <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(51, 65, 85, 0.5); padding: 16px; border-radius: 12px;">
+            <h4 style="margin: 0 0 12px 0; font-size: 0.8rem; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px;">Tech Stack</h4>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="stack-pill" style="margin:0;">PHP (Native MVC)</span>
+              <span class="stack-pill" style="margin:0;">MySQL</span>
+              <span class="stack-pill" style="margin:0;">JavaScript ES6+</span>
+              <span class="stack-pill" style="margin:0;">Tailwind/Bootstrap</span>
+            </div>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(51, 65, 85, 0.5); padding: 16px; border-radius: 12px;">
+            <h4 style="margin: 0 0 12px 0; font-size: 0.8rem; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px;">Data Flow</h4>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #38bdf8; line-height: 1.8;">
+              Client &rarr; REST API Endpoint<br>
+              Middleware &rarr; Role Auth (Admin/User)<br>
+              Controller &rarr; Bidding Logic Validation<br>
+              Model &rarr; MySQL Transaction
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; justify-content: flex-end;">
+          <a href="#" target="_blank" class="btn-source" style="text-decoration:none;">Source Code</a>
+          <a href="#" target="_blank" class="btn-demo" style="text-decoration:none;">Buka Live Demo ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== CV Quick Peek Modal ====== -->
+  <div id="cv-peek-overlay" class="cmd-modal-overlay" aria-hidden="true" onclick="if(event.target===this) closeCvPeek()">
+    <div class="resume-peek-modal">
+      <div class="resume-modal-header cmd-header">
+        <span style="color: #38bdf8; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">// RESUME_QUICK_PEEK</span>
+        <span class="cmd-badge-esc" onclick="closeCvPeek()" style="cursor: pointer; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #ef4444;">ESC</span>
+      </div>
+      <div class="resume-sheet-container">
+        <div class="resume-sheet">
+          <!-- Header Resume -->
+          <header class="resume-sheet-header">
+            <h1 class="r-name">LUCKY YAN ZUHARA</h1>
+            <p class="r-role" style="color: #94a3b8; margin: 4px 0 12px 0; font-size: 0.9rem;">Software Engineer &amp; Frontend Specialist</p>
+            <div class="r-contacts" style="font-size: 0.8rem; color: #64748b; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+              <span>📍 Jakarta Barat, Indonesia</span>
+              <span>•</span>
+              <span>🎓 S1 Teknik Informatika (Universitas Pamulang)</span>
+              <span>•</span>
+              <span class="r-status" style="color: #10b981; font-weight: 600;">Open to Work / Internship</span>
+            </div>
+          </header>
+
+          <hr class="r-divider" style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;">
+
+          <!-- Ringkasan Profil -->
+          <section class="r-section">
+            <h3 class="r-sec-title">PROFESSIONAL SUMMARY</h3>
+            <p class="r-text">Mahasiswa Teknik Informatika tingkat akhir dengan spesialisasi pengembangan antarmuka web modern, integrasi REST API, dan rekayasa perangkat lunak berbasis arsitektur bersih. Memiliki pengalaman memimpin dan membangun platform lelang digital end-to-end yang diliput media nasional serta tersertifikasi Cisco CCNA.</p>
+          </section>
+
+          <!-- Pengalaman Teknis & Proyek Unggulan -->
+          <section class="r-section">
+            <h3 class="r-sec-title">KEY PROJECTS &amp; EXPERIENCE</h3>
+            <div class="r-entry" style="margin-bottom: 12px;">
+              <div class="r-entry-head" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                <strong style="font-size: 0.95rem; color: #f8fafc;">Platform Lelang Digital Terintegrasi (Seleno Lelang)</strong>
+                <span class="r-date" style="font-size: 0.8rem; color: #64748b;">2026</span>
+              </div>
+              <p class="r-sub" style="font-size: 0.85rem; color: #38bdf8; margin: 0 0 8px 0;">Lead Developer / Frontend &amp; System Architecture</p>
+              <ul class="r-list" style="margin: 0; padding-left: 20px;">
+                <li>Merancang sistem lelang web interaktif berbasis subscription dengan integrasi basis data terpusat dan role-based access control.</li>
+                <li>Mempublikasikan implementasi ke jurnal ilmiah serta diliput secara resmi oleh media nasional TangselXpress.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Keahlian Teknis -->
+          <section class="r-section">
+            <h3 class="r-sec-title">TECHNICAL SKILLS</h3>
+            <div class="r-skills-grid">
+              <div style="margin-bottom: 6px;"><strong>Languages &amp; Frameworks:</strong> JavaScript (ES6+), PHP, Python, HTML5, CSS3/Tailwind/Vanilla.</div>
+              <div style="margin-bottom: 6px;"><strong>Networking &amp; Backend:</strong> Cisco CCNA (Switching, Routing, Wireless), RESTful API, MySQL.</div>
+              <div><strong>Tools &amp; Methodologies:</strong> Git, GitHub, Figma UI/UX, Agile Development.</div>
+            </div>
+          </section>
+
+          <!-- Sertifikasi & Publikasi -->
+          <section class="r-section">
+            <h3 class="r-sec-title">CERTIFICATIONS &amp; PUBLICATIONS</h3>
+            <ul class="r-list" style="margin: 0; padding-left: 20px;">
+              <li><strong>Cisco Certified Network Associate (CCNA):</strong> Switching, Routing, and Wireless Essentials.</li>
+              <li><strong>Academic Research Paper:</strong> Publikasi manuskrip perancangan sistem platform lelang digital berbasis web.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="resume-modal-footer">
+        <span class="file-meta" style="color: #94a3b8; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace;">📄 Resume_LuckyYanZuhara.pdf (Verified)</span>
+        <a href="cv-lucky-yan-zuhara.pdf" download class="btn-modal-download" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;">⬇ Unduh PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Scripts ====== -->
+  <script>
+    // --- Modals Logic (Project Preview & CV Peek) ---
+    function openProjectPreview() {
+      const overlay = document.getElementById('project-preview-overlay');
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
+    }
+    
+    function closeProjectPreview() {
+      const overlay = document.getElementById('project-preview-overlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    function openCvPeek() {
+      const overlay = document.getElementById('cv-peek-overlay');
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
+    }
+    
+    function closeCvPeek() {
+      const overlay = document.getElementById('cv-peek-overlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    // Bind escape key for new modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProjectPreview();
+        closeCvPeek();
+      }
+    });
+
+    // --- Multi-Language i18n Data Dictionary ---
+    const i18n = {
+      id: {
+        nav_about: "Tentang",
+        nav_skills: "Skills",
+        nav_projects: "Proyek",
+        nav_experience: "Pengalaman",
+        nav_contact: "Kontak",
+
+        hero_greeting: 'Halo! Saya <strong class="name-highlight">Lucky Yan Zuhara</strong>',
+        hero_status: "Open to Work / Internship",
+        hero_title: 'Membangun <span class="gradient-text-elite">Sistem Web Modern</span> yang Skalabel, Cepat, dan Berpusat pada Pengguna.',
+        hero_bio: 'Software Engineer &amp; Frontend Developer dengan spesialisasi rekayasa arsitektur web bersih dan performa tinggi. Berpengalaman memimpin delivery platform lelang digital skala produksi, integrasi API sistem data terpusat, serta didukung fondasi jaringan bersertifikasi Cisco CCNA.',
+        hero_btn_projects: 'Lihat Proyek',
+        hero_btn_cv: 'Unduh CV',
+        hero_bento_loc_label: 'LOKASI',
+        hero_bento_loc_val: 'Jakarta Barat',
+        hero_bento_focus_label: 'FOKUS',
+        hero_bento_focus_val: 'Frontend & UI/UX',
+        hero_bento_edu_label: 'PENDIDIKAN',
+        hero_bento_edu_val: 'S1 Teknik Informatika',
+
+        about_kicker: 'TENTANG SAYA // ENGINEERING PROFILE',
+        about_lead: 'Berfokus pada rekayasa antarmuka modern berperforma tinggi, arsitektur terstruktur, dan sistem web siap produksi.',
+        about_desc: 'Mahasiswa S1 Teknik Informatika Universitas Pamulang dengan pengalaman nyata merancang dan memimpin pengembangan platform lelang digital end-to-end yang diliput media nasional TangselXpress. Memadukan keahlian frontend interaktif, integrasi RESTful API, publikasi penelitian ilmiah, serta fondasi infrastruktur jaringan bersertifikasi resmi Cisco CCNA.',
+        about_badge1: '🚀 End-to-End Delivery',
+        about_badge2: '📜 Cisco CCNA Certified',
+        about_badge3: '📰 National Press Validated',
+        about_pillar1_label: 'PENDIDIKAN RESMI',
+        about_pillar1_val: 'S1 Teknik Informatika',
+        about_pillar1_desc: 'Universitas Pamulang (Aktif)',
+        about_pillar2_label: 'CORE STACK',
+        about_pillar2_val: 'Frontend & Backend API',
+        about_pillar2_desc: 'JS (ES6+), PHP, Python, MySQL',
+        about_pillar3_label: 'STATUS KARIR',
+        about_pillar3_val: 'Open to Work / Internship <span class="status-dot" style="margin-left: 6px;"></span>',
+        about_pillar3_desc: 'Siap Magang / Kerja',
+
+        skills_label: 'Skill & Teknologi',
+        skills_heading: 'Keahlian teknis dan alat yang dikuasai',
+        tools_label: 'DATABASE &amp; DEV TOOLS:',
+        tech_cpp_tag: 'Sistem & OOP',
+        tech_java_tag: 'Aplikasi Inti & Desktop',
+        tech_js_tag: 'Logika Dinamis & Asinkron',
+        tech_php_tag: 'Sisi Server & Basis Data',
+        tech_laravel_tag: 'Framework MVC & REST API',
+        tech_html5_tag: 'Arsitektur Semantik',
+        tech_css3_tag: 'Responsif Modern & Glassmorphism',
+        skills_cred_status: 'VERIFIED CREDENTIAL // 2026',
+        skills_cred_title: 'Sertifikasi Cisco CCNA',
+        skills_cred_desc: 'CCNA Switching, Routing & Wireless Foundation',
+        skills_cred_cert: 'Sertifikat Materi',
+        skills_cred_verify: 'Verifikasi Unpam',
+
+        projects_heading: 'Pengalaman Akademik & Proyek',
+        proj1_title: 'Platform Lelang Digital Terintegrasi',
+        proj1_media: 'Diliput Media: <strong>TangselXpress</strong>',
+        proj1_desc: 'Sistem web lelang berbasis langganan dengan integrasi basis data real-time, validasi transaksi aman, dan antarmuka dashboard responsif.',
+        proj2_title: 'Sistem Pakar Diagnosa Medis',
+        proj2_desc: 'Aplikasi inferensi berbasis aturan (rule-based reasoning) untuk memetakan gejala klinis pasien dan menghasilkan diagnosa awal akurat.',
+        proj3_title: 'Keuangan Saku (Manajemen Finansial)',
+        proj3_desc: 'Aplikasi pencatatan dan monitoring arus kas interaktif dengan visualisasi pengeluaran dan tata letak responsif adaptif.',
+
+        exp_heading_label: 'Perjalanan Karir & Pendidikan',
+        exp_heading_title: 'Pengalaman & Sertifikasi',
+        exp1_date: 'Mei 2026 – Juni 2026',
+        exp1_desc: 'Merancang dan membangun arsitektur antarmuka sistem lelang digital berbasis web dengan optimasi performa dan alur data responsif.',
+        exp2_role: 'Penulis & Peneliti Sistem Platform Lelang Digital',
+        exp2_company: 'Publikasi Jurnal Ilmiah Nasional',
+        exp2_desc: 'Mengkaji analisis perancangan sistem dan efisiensi platform lelang digital berbasis web untuk transparansi transaksi.',
+        exp3_verify: 'Lihat Sertifikat ↗',
+        exp3_desc: 'Credential ID: <code class="credential-id">161937ce-1479-4d90-aa8b-110c7b3904f5</code> melalui Cisco Networking Academy & Universitas Pamulang.',
+
+        contact_label: 'KONTAK // GET IN TOUCH',
+        contact_headline: 'Siap berkolaborasi membangun produk digital masa depan.',
+        contact_subtext: 'Terbuka untuk posisi Frontend Engineer, Software Developer (Full-time / Internship), maupun diskusi rekayasa perangkat lunak.',
+        contact_copy_action: 'Salin',
+        contact_cv_btn: 'Unduh CV Resmi (PDF)',
+        contact_status_val: 'STATUS: READY FOR INTERVIEWS & COLLABORATION',
+        toast_copied: 'Tersalin ke clipboard!',
+        copy_copied: 'Tersalin!'
+      },
+      en: {
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+
+        hero_greeting: 'Hi! I\'m <strong class="name-highlight">Lucky Yan Zuhara</strong>',
+        hero_status: "Available for Roles / Internship",
+        hero_title: 'Crafting <span class="gradient-text-elite">Modern Web Systems</span> with Scalability, Speed, and User-Centric Design.',
+        hero_bio: 'Software Engineer &amp; Frontend Specialist focused on clean architecture and high-performance web systems. Proven track record in delivering production-ready digital auction platforms, robust API integrations, backed by Cisco CCNA certified networking fundamentals.',
+        hero_btn_projects: 'View Projects',
+        hero_btn_cv: 'Download CV',
+        hero_bento_loc_label: 'LOCATION',
+        hero_bento_loc_val: 'West Jakarta',
+        hero_bento_focus_label: 'FOCUS',
+        hero_bento_focus_val: 'Frontend & UI/UX',
+        hero_bento_edu_label: 'EDUCATION',
+        hero_bento_edu_val: 'Bachelor of Computer Science',
+
+        about_kicker: 'ABOUT ME // ENGINEERING PROFILE',
+        about_lead: 'Focused on high-performance modern web engineering, structured architecture, and production-ready systems.',
+        about_desc: 'Undergraduate Informatics Engineering student at Universitas Pamulang with proven hands-on experience designing and leading the end-to-end development of a digital auction platform covered by national media TangselXpress. Combining interactive frontend engineering, RESTful API integration, scientific research publication, and official Cisco CCNA certified network infrastructure foundations.',
+        about_badge1: '🚀 End-to-End Delivery',
+        about_badge2: '📜 Cisco CCNA Certified',
+        about_badge3: '📰 National Press Validated',
+        about_pillar1_label: 'FORMAL EDUCATION',
+        about_pillar1_val: 'Bachelor of Computer Science',
+        about_pillar1_desc: 'Universitas Pamulang (Active)',
+        about_pillar2_label: 'CORE STACK',
+        about_pillar2_val: 'Frontend & Backend API',
+        about_pillar2_desc: 'JS (ES6+), PHP, Python, MySQL',
+        about_pillar3_label: 'CAREER STATUS',
+        about_pillar3_val: 'Open to Work / Internship <span class="status-dot" style="margin-left: 6px;"></span>',
+        about_pillar3_desc: 'Ready for Internship / Work',
+
+        skills_label: 'Skill & Technologies',
+        skills_heading: 'Technical skills and technologies mastered',
+        tools_label: 'DATABASE &amp; DEV TOOLS:',
+        tech_cpp_tag: 'System & OOP',
+        tech_java_tag: 'Core & Desktop App',
+        tech_js_tag: 'Dynamic & Async Logic',
+        tech_php_tag: 'Server-Side & Database',
+        tech_laravel_tag: 'MVC Framework & REST API',
+        tech_html5_tag: 'Semantic Architecture',
+        tech_css3_tag: 'Modern Responsive & Glassmorphism',
+        skills_cred_status: 'VERIFIED CREDENTIAL // 2026',
+        skills_cred_title: 'Cisco Certified',
+        skills_cred_desc: 'CCNA Switching, Routing & Wireless Foundation',
+        skills_cred_cert: 'Course Certificate',
+        skills_cred_verify: 'University Verification',
+
+        projects_heading: 'Academic Experience & Featured Projects',
+        proj1_title: 'Integrated Digital Auction Platform',
+        proj1_media: 'Featured on: <strong>TangselXpress</strong>',
+        proj1_desc: 'Subscription-based digital auction web system featuring real-time database integration, secure transaction validation, and responsive dashboard interface.',
+        proj2_title: 'Medical Diagnosis Expert System',
+        proj2_desc: 'Rule-based reasoning inference app designed to map patient clinical symptoms and produce accurate preliminary diagnoses.',
+        proj3_title: 'Keuangan Saku (Financial Management)',
+        proj3_desc: 'Interactive cash flow tracking and monitoring application with expenditure visualization and adaptive responsive layout.',
+
+        exp_heading_label: 'Career Path & Education',
+        exp_heading_title: 'Experience & Certifications',
+        exp1_date: 'May 2026 – June 2026',
+        exp1_desc: 'Designed and engineered the web interface architecture for a digital auction system with performance optimization and responsive data flow.',
+        exp2_role: 'Author & Researcher of Digital Auction Platform System',
+        exp2_company: 'National Scientific Journal Publication',
+        exp2_desc: 'Studied system design analysis and efficiency of web-based digital auction platforms for transaction transparency.',
+        exp3_verify: 'View Certificate ↗',
+        exp3_desc: 'Credential ID: <code class="credential-id">161937ce-1479-4d90-aa8b-110c7b3904f5</code> via Cisco Networking Academy & Universitas Pamulang.',
+
+        contact_label: 'CONTACT // GET IN TOUCH',
+        contact_headline: 'Ready to collaborate and build future-ready digital products.',
+        contact_subtext: 'Open for Frontend Engineer, Software Developer positions (Full-time / Internship), or software engineering discussions.',
+        contact_copy_action: 'Copy',
+        contact_cv_btn: 'Download Official Resume (PDF)',
+        contact_status_val: 'STATUS: READY FOR INTERVIEWS & COLLABORATION',
+        toast_copied: 'Copied to clipboard!',
+        copy_copied: 'Copied!'
+      }
+    };
+
+    let currentLang = localStorage.getItem('preferred_lang') || 'id';
+
+    function setLanguage(lang, playSfx = true) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('preferred_lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+
+      if (playSfx && typeof window.playMechanicalClick === 'function') {
+        window.playMechanicalClick();
+      }
+
+      const langBtns = document.querySelectorAll('#lang-toggle .lang-btn');
+      langBtns.forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => el.classList.add('lang-changing'));
+
+      setTimeout(() => {
+        elements.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (i18n[lang] && i18n[lang][key] !== undefined) {
+            el.innerHTML = i18n[lang][key];
+          }
+          el.classList.remove('lang-changing');
+        });
+        if (typeof syncNavIndicatorToActive === 'function') {
+          syncNavIndicatorToActive();
+        }
+      }, 100);
+    }
+
+    // --- Theme Switcher System (Dark / Clean Light Mode) ---
+    const storedTheme = localStorage.getItem('theme_preference');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    let currentTheme = storedTheme || (systemPrefersLight ? 'light' : 'dark');
+
+    function setTheme(theme, playSfx = true) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme_preference', theme);
+
+      if (playSfx && typeof window.playMechanicalClick === 'function') {
+        window.playMechanicalClick();
+      }
+    }
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeBtn = document.getElementById('theme-toggle');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setTheme(targetTheme, true);
+        });
+      }
+      setTheme(currentTheme, false);
+
+      const langToggle = document.getElementById('lang-toggle');
+      if (langToggle) {
+        const langBtns = langToggle.querySelectorAll('.lang-btn');
+        langBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetLang = btn.getAttribute('data-lang');
+            if (targetLang && targetLang !== currentLang) {
+              setLanguage(targetLang, true);
+            }
+          });
+        });
+      }
+      setLanguage(currentLang, false);
+    });
+
+    // --- Clipboard Utility ---
+    function copyToClipboard(e, text) {
+      if (e) e.preventDefault();
+      
+      // Play sound if available
+      if (typeof window.playMechanicalClick === 'function') {
+        window.playMechanicalClick();
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        if (toast) {
+          toast.textContent = "📋 Alamat email disalin!";
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+        const copyBtn = document.querySelector('.direct-email .card-action');
+        if (copyBtn) {
+          const originalText = copyBtn.innerHTML;
+          const copiedText = i18n[currentLang] ? i18n[currentLang].copy_copied : 'Tersalin!';
+          copyBtn.textContent = copiedText;
+          copyBtn.style.color = '#05070a';
+          copyBtn.style.borderColor = '#22c55e';
+          copyBtn.style.background = '#22c55e';
+          copyBtn.style.boxShadow = '0 0 15px rgba(34, 197, 94, 0.6)';
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.style.color = '';
+            copyBtn.style.borderColor = '';
+            copyBtn.style.background = '';
+            copyBtn.style.boxShadow = '';
+          }, 2000);
+        }
+      });
+    }
+
+    // --- Splash Screen & Initial Scroll Reset ---
+    if (window.location.hash) {
+      window.history.replaceState(null, null, window.location.pathname);
+    }
+    window.scrollTo(0, 0);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const splash = document.getElementById('splash');
+      const counterEl = document.getElementById('splashCounter');
+      const barFill = document.querySelector('.hud-fill');
+      const splashContent = document.querySelector('.splash-content');
+
+      // Trigger staggered lines animation on mount
+      setTimeout(() => {
+        const lines = document.querySelectorAll('.stagger-line span');
+        lines.forEach((line, index) => {
+          setTimeout(() => {
+            line.style.transform = 'translateY(0)';
+          }, index * 150);
+        });
+      }, 100);
+
+      let progress = 0;
+      const totalDuration = 2200;
+      const steps = 100;
+      const intervalTime = totalDuration / steps;
+
+      const interval = setInterval(() => {
+        progress += 1;
+        if (progress >= 100) progress = 100;
+
+        counterEl.textContent = progress.toString().padStart(2, '0') + '%';
+        barFill.style.width = progress + '%';
+
+        if (progress === 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            splashContent.classList.add('hide'); // Fade out text & HUD
+            setTimeout(() => {
+              splash.classList.add('shutter-open'); // Cinematic dual shutter reveal
+              document.body.classList.remove('prevent-scroll');
+              document.body.classList.add('intro-done');
+              const homeEl = document.getElementById('home');
+              if (homeEl) {
+                homeEl.classList.add('is-visible', 'is-active');
+                const heroItems = homeEl.querySelectorAll('.hero-visual, .hero-kicker-group, .hero-status, .greeting-badge, .status-badge, .hero-title, .hero-desc, .hero-cta, .hero-bento-card');
+                heroItems.forEach(item => item.classList.add('is-visible'));
+              }
+              if (typeof updateActiveSlide === 'function') {
+                updateActiveSlide();
+              }
+              // Completely remove splash element from rendering and pointer events after shutters finish
+              setTimeout(() => {
+                splash.style.display = 'none';
+                splash.style.pointerEvents = 'none';
+                splash.style.visibility = 'hidden';
+              }, 950);
+            }, 250);
+          }, 80);
+        }
+      }, intervalTime);
+    });
+
+    // --- Floating Sliding Pill Indicator for Navigation ---
+    const navLinksContainer = document.querySelector('.nav-links');
+    const navIndicator = navLinksContainer ? navLinksContainer.querySelector('.nav-indicator') : null;
+    const navLinks = navLinksContainer ? navLinksContainer.querySelectorAll('.nav-link') : [];
+    let isHoveringNav = false;
+
+    function moveNavIndicator(targetEl) {
+      if (!navIndicator) return;
+      if (!targetEl) {
+        navIndicator.style.opacity = '0';
+        return;
+      }
+      navIndicator.style.opacity = '1';
+      navIndicator.style.transform = `translateX(${targetEl.offsetLeft}px)`;
+      navIndicator.style.width = `${targetEl.offsetWidth}px`;
+    }
+
+    function syncNavIndicatorToActive() {
+      if (!navLinksContainer || !navIndicator || isHoveringNav) return;
+      const activeLink = navLinksContainer.querySelector('.nav-link.is-active');
+      if (activeLink) {
+        moveNavIndicator(activeLink);
+      } else {
+        navIndicator.style.opacity = '0';
+      }
+    }
+
+    if (navLinksContainer && navIndicator) {
+      navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          isHoveringNav = true;
+          moveNavIndicator(link);
+        });
+
+        link.addEventListener('click', () => {
+          navLinks.forEach(l => l.classList.remove('is-active'));
+          link.classList.add('is-active');
+          moveNavIndicator(link);
+        });
+      });
+
+      navLinksContainer.addEventListener('mouseleave', () => {
+        isHoveringNav = false;
+        syncNavIndicatorToActive();
+      });
+
+      window.addEventListener('resize', () => {
+        syncNavIndicatorToActive();
+      }, { passive: true });
+
+      window.addEventListener('load', () => {
+        setTimeout(syncNavIndicatorToActive, 350);
+      });
+    }
+
+    function setActiveNavBySectionId(sectionId) {
+      if (!navLinksContainer) return;
+      if (sectionId === 'home') {
+        navLinks.forEach(l => l.classList.remove('is-active'));
+        syncNavIndicatorToActive();
+        return;
+      }
+      const matched = navLinksContainer.querySelector(`a[href="#${sectionId}"]`);
+      if (matched) {
+        navLinks.forEach(l => l.classList.remove('is-active'));
+        matched.classList.add('is-active');
+        syncNavIndicatorToActive();
+      }
+    }
+
+    // --- Precision Slide Deck & Pagination Tracker (PAGE | 01 - 06) ---
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+
+    function updateActiveSlide() {
+      if (!slides.length) return;
+      const vh = window.innerHeight;
+      let bestSlide = slides[0];
+      let bestIndex = 1;
+      let maxVisible = -Infinity;
+
+      // When near top of page, always anchor to hero (PAGE | 01)
+      if (window.scrollY < 100) {
+        bestSlide = slides[0];
+        bestIndex = 1;
+      } else {
+        slides.forEach((slide, idx) => {
+          const rect = slide.getBoundingClientRect();
+          const visibleTop = Math.max(0, rect.top);
+          const visibleBottom = Math.min(vh, rect.bottom);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+          if (visibleHeight > maxVisible) {
+            maxVisible = visibleHeight;
+            bestSlide = slide;
+            bestIndex = idx + 1;
+          }
+        });
+      }
+
+      slides.forEach(s => {
+        if (s !== bestSlide) {
+          s.classList.remove('is-active');
+        }
+      });
+      bestSlide.classList.add('is-active', 'is-visible');
+
+      const sectionId = bestSlide.getAttribute('id');
+      if (sectionId) {
+        setActiveNavBySectionId(sectionId);
+      }
+      if (slideCounter) {
+        slideCounter.textContent = `PAGE | ${bestIndex.toString().padStart(2, '0')}`;
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveSlide, { passive: true });
+    window.addEventListener('resize', updateActiveSlide, { passive: true });
+    updateActiveSlide();
+
+    // --- Mobile & Desktop Smooth Scroll Reveal Observer (Two-way: Up & Down) ---
+    const revealSelector = `
+      .section-heading,
+      .bento-header,
+      .bento-visual,
+      .bento-narrative,
+      .pillar-card,
+      .skill-pillar,
+      .credential-card,
+      .project-card,
+      .timeline-content,
+      .bento-card,
+      .scroll-reveal
+    `;
+
+    const revealElements = document.querySelectorAll(revealSelector);
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          // Re-arm smooth reveal motion when scrolled away
+          const rect = entry.target.getBoundingClientRect();
+          if (rect.top > window.innerHeight + 50 || rect.bottom < -50) {
+            entry.target.classList.remove('is-visible');
+          }
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.05,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smooth Anchor Scroll with Header Offset for Mobile & Desktop
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#' || targetId.length <= 1) return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const headerOffset = window.innerWidth <= 768 ? 68 : 0;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          const mobileMenuEl = document.getElementById('mobileMenu');
+          if (mobileMenuEl && mobileMenuEl.classList.contains('open')) {
+            mobileMenuEl.classList.remove('open');
+          }
+        }
+      });
+    });
+
+    // Ensure hero section items are immediately visible on load
+    const initialHeroItems = document.querySelectorAll('#home .hero-visual, #home .hero-kicker-group, #home .hero-status, #home .greeting-badge, #home .status-badge, #home .hero-title, #home .hero-desc, #home .hero-cta, #home .hero-bento-card, #home');
+    initialHeroItems.forEach(item => item.classList.add('is-visible'));
+
+    // Keyboard Navigation for Snap Scrolling
+    window.addEventListener('keydown', (e) => {
+      if (typeof window.isCommandPaletteOpen === 'function' && window.isCommandPaletteOpen()) {
+        return; // Suppress slide snap scrolling when Command Palette modal is open
+      }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const activeIndex = Array.from(slides).findIndex(s => s.classList.contains('is-active'));
+        let targetIndex = activeIndex;
+        if (e.key === 'ArrowDown' && activeIndex < slides.length - 1) {
+          targetIndex++;
+        } else if (e.key === 'ArrowUp' && activeIndex > 0) {
+          targetIndex--;
+        }
+        if (targetIndex !== activeIndex && targetIndex >= 0) {
+          slides[targetIndex].scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+
+    // Hover Spotlight Effect on Cards (Flashlight Card Reflection)
+    const cards = document.querySelectorAll('.project-card, .profile-card, .pillar-card, .skill-panel, .timeline-item, .info-card, .bento-card, .hero-bento-card, .credential-card, .timeline-content, .hero-photo-card, .experience-card, .contact-card');
+    for (const card of cards) {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      }, { passive: true });
+    }
+
+    // Dynamic Mouse Spotlight Across All Sections (Page 01 to Page 06)
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(sec => {
+      sec.addEventListener('mousemove', (e) => {
+        const rect = sec.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        sec.style.setProperty('--mouse-x', `${x}px`);
+        sec.style.setProperty('--mouse-y', `${y}px`);
+      }, { passive: true });
+    });
+
+    // Hero Interactive Spotlight
+    const heroSection = document.getElementById('home') || document.getElementById('hero');
+    const heroGlow = document.querySelector('.hero-glow');
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        heroSection.style.setProperty('--mouse-x', `${x}px`);
+        heroSection.style.setProperty('--mouse-y', `${y}px`);
+        if (heroGlow) {
+          heroGlow.style.setProperty('--mouse-x', `${x}px`);
+          heroGlow.style.setProperty('--mouse-y', `${y}px`);
+        }
+      }, { passive: true });
+    }
+
+    // Marquee Hover & Interactive Slowdown
+    const techMarquee = document.querySelector('.tech-marquee');
+    const marqueeTrack = document.querySelector('.marquee-track');
+    if (techMarquee && marqueeTrack) {
+      techMarquee.addEventListener('mouseenter', () => {
+        marqueeTrack.classList.add('slowed');
+      });
+      techMarquee.addEventListener('mouseleave', () => {
+        marqueeTrack.classList.remove('slowed');
+      });
+    }
+
+    // --- Network Constellation Canvas ---
+    (function initNetworkBg() {
+      const canvas = document.getElementById('network-bg');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const hero = canvas.closest('.hero') || document.getElementById('home');
+      let width = 0;
+      let height = 0;
+
+      function resize() {
+        if (!hero) return;
+        const rect = hero.getBoundingClientRect();
+        width = canvas.width = rect.width;
+        height = canvas.height = rect.height;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      const mouse = { x: -1000, y: -1000, radius: 130 };
+      if (hero) {
+        hero.addEventListener('mousemove', (e) => {
+          const rect = hero.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        }, { passive: true });
+        hero.addEventListener('mouseleave', () => {
+          mouse.x = -1000;
+          mouse.y = -1000;
+        }, { passive: true });
+      }
+
+      const particleCount = 35;
+      const particles = [];
+      const colors = ['rgba(56, 189, 248, 0.75)', 'rgba(255, 255, 255, 0.65)', 'rgba(14, 165, 233, 0.7)'];
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * (width || 800),
+          y: Math.random() * (height || 600),
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          radius: Math.random() * 1.5 + 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+
+      const maxDistance = 110;
+      const maxDistanceSq = maxDistance * maxDistance;
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          // Subtle repulsion from mouse
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < mouse.radius * mouse.radius && distSq > 0) {
+            const dist = Math.sqrt(distSq);
+            const force = (mouse.radius - dist) / mouse.radius;
+            p.x += (dx / dist) * force * 1.6;
+            p.y += (dy / dist) * force * 1.6;
+          }
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) { p.x = 0; p.vx *= -1; }
+          else if (p.x > width) { p.x = width; p.vx *= -1; }
+          if (p.y < 0) { p.y = 0; p.vy *= -1; }
+          else if (p.y > height) { p.y = height; p.vy *= -1; }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.shadowColor = '#38bdf8';
+          ctx.shadowBlur = 4;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const distX = p.x - p2.x;
+            const distY = p.y - p2.y;
+            const dSq = distX * distX + distY * distY;
+            if (dSq < maxDistanceSq) {
+              const alpha = (1 - Math.sqrt(dSq) / maxDistance) * 0.08;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    })();
+
+    // --- Magnetic Button Effect on Action Buttons ---
+    (function initMagneticButtons() {
+      const magneticBtns = document.querySelectorAll('.btn-primary-elite, .btn-secondary-elite');
+      const triggerMargin = 25;
+
+      document.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 768) return;
+        magneticBtns.forEach(btn => {
+          const rect = btn.getBoundingClientRect();
+          const btnCenterX = rect.left + rect.width / 2;
+          const btnCenterY = rect.top + rect.height / 2;
+
+          const isNear = (
+            e.clientX >= rect.left - triggerMargin &&
+            e.clientX <= rect.right + triggerMargin &&
+            e.clientY >= rect.top - triggerMargin &&
+            e.clientY <= rect.bottom + triggerMargin
+          );
+
+          if (isNear) {
+            const pullX = (e.clientX - btnCenterX) * 0.22;
+            const pullY = (e.clientY - btnCenterY) * 0.22;
+            btn.style.transform = `translate(${pullX}px, ${pullY}px)`;
+            btn.style.transition = 'transform 0.1s ease-out';
+          } else if (btn.style.transform && btn.style.transform !== '') {
+            btn.style.transform = '';
+            btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+          }
+        });
+      }, { passive: true });
+    })();
+    // Header Scroll Border Effect
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      const handleHeaderScroll = () => {
+        if (window.scrollY > 15 || document.documentElement.scrollTop > 15) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+      };
+      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+      handleHeaderScroll();
+    }
+
+    // 3D Perspective Tilt & Dynamic Glare on Hero Photo Card (.hero-photo-card)
+    (function initHeroPhotoTilt() {
+      const heroVisual = document.querySelector('.hero-visual');
+      const profileCard = document.querySelector('.hero-photo-card') || document.querySelector('.profile-card-elite');
+      const giantText = document.querySelector('.giant-bg-text');
+
+      if (!profileCard) return;
+
+      let cardGlare = profileCard.querySelector('.card-glare');
+      if (!cardGlare) {
+        cardGlare = document.createElement('div');
+        cardGlare.className = 'card-glare';
+        profileCard.appendChild(cardGlare);
+      }
+
+      const target = heroVisual || profileCard;
+
+      target.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 768) return;
+        const rect = profileCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Max 8-10 degrees rotation
+        const maxDegree = 9;
+        const rotateX = ((y - centerY) / centerY) * -maxDegree;
+        const rotateY = ((x - centerX) / centerX) * maxDegree;
+
+        profileCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+        profileCard.style.transition = 'transform 0.08s ease-out';
+
+        const glareX = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        const glareY = Math.max(0, Math.min(100, (y / rect.height) * 100));
+        cardGlare.style.setProperty('--glare-x', `${glareX.toFixed(1)}%`);
+        cardGlare.style.setProperty('--glare-y', `${glareY.toFixed(1)}%`);
+        cardGlare.style.opacity = '1';
+
+        if (giantText && heroVisual) {
+          const vRect = heroVisual.getBoundingClientRect();
+          const vX = e.clientX - vRect.left;
+          const vY = e.clientY - vRect.top;
+          const vCenterX = vRect.width / 2;
+          const vCenterY = vRect.height / 2;
+          const translateX = ((vX - vCenterX) / vCenterX) * -15;
+          const translateY = ((vY - vCenterY) / vCenterY) * -15;
+          giantText.style.transform = `translate(calc(-50% + ${translateX.toFixed(1)}px), calc(-50% + ${translateY.toFixed(1)}px))`;
+          giantText.style.transition = 'none';
+        }
+      });
+
+      target.addEventListener('mouseleave', () => {
+        if (window.innerWidth <= 768) return;
+        profileCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        profileCard.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+
+        cardGlare.style.opacity = '0';
+        cardGlare.style.transition = 'opacity 0.5s ease';
+
+        if (giantText) {
+          giantText.style.transform = 'translate(-50%, -50%)';
+          giantText.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        }
+      });
+    })();
+
+    // 3D Perspective Tilt on About Bento Visual
+    const bentoVisual = document.querySelector('.bento-visual');
+    if (bentoVisual) {
+      bentoVisual.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 768) return;
+        const rect = bentoVisual.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+
+        bentoVisual.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+        const glareX = (x / rect.width) * 100;
+        const glareY = (y / rect.height) * 100;
+        bentoVisual.style.setProperty('--glare-x', `${glareX}%`);
+        bentoVisual.style.setProperty('--glare-y', `${glareY}%`);
+      });
+
+      bentoVisual.addEventListener('mouseleave', () => {
+        bentoVisual.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        bentoVisual.style.setProperty('--glare-x', '50%');
+        bentoVisual.style.setProperty('--glare-y', '50%');
+      });
+    }
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+      for (const link of mobileMenu.querySelectorAll('a')) {
+        link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      }
+    }
+
+    // ========================================================================
+    // 1. Custom Cyber Cursor & Magnetic Follower (Desktop Only)
+    // ========================================================================
+    (function initCustomCursor() {
+      // Sembunyikan pada mode sentuh / layar mobile
+      if (window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches) {
+        return;
+      }
+
+      const dot = document.querySelector('.custom-cursor-dot');
+      const ring = document.querySelector('.custom-cursor-ring');
+      if (!dot || !ring) return;
+
+      let mouseX = -100;
+      let mouseY = -100;
+      let isVisible = false;
+      let hasMovedFirstTime = false;
+
+      // Ensure cursor elements are hidden initially by default
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        hasMovedFirstTime = true;
+
+        // Update posisi transform seketika saat gerakan pertama
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        ring.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
+        if (!isVisible) {
+          isVisible = true;
+          dot.style.opacity = '1';
+          ring.style.opacity = '1';
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseleave', () => {
+        isVisible = false;
+        dot.style.opacity = '0';
+        ring.style.opacity = '0';
+      });
+
+      document.addEventListener('mouseenter', () => {
+        if (hasMovedFirstTime) {
+          isVisible = true;
+          dot.style.opacity = '1';
+          ring.style.opacity = '1';
+        }
+      });
+
+      document.addEventListener('mousedown', () => {
+        ring.classList.add('cursor-active');
+      });
+
+      document.addEventListener('mouseup', () => {
+        ring.classList.remove('cursor-active');
+      });
+
+      // Hover expansion di atas link, tombol, kartu, dan gambar (.btn, .nav-link, .card, img, dll)
+      const hoverTargets = 'a, button, .btn, .nav-link, .card, img, .project-card, .bento-card, .pillar-card, .credential-card, .tech-card, .tool-pill, .impact-pill, .hero-bento-card, .experience-card, .sfx-btn, .cred-btn, .timeline-verify-btn, .direct-email, input, textarea, [role="button"]';
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.closest(hoverTargets)) {
+          ring.classList.add('cursor-hover');
+        }
+      });
+
+      document.addEventListener('mouseout', (e) => {
+        if (e.target.closest(hoverTargets)) {
+          ring.classList.remove('cursor-hover');
+        }
+      });
+    })();
+
+    // ========================================================================
+    // 2. Web Audio Haptic Feedback (Mechanical Click FX via Web Audio API)
+    // ========================================================================
+    (function initWebAudioHaptics() {
+      let audioCtx = null;
+      let sfxEnabled = localStorage.getItem('lz_sfx_enabled') !== 'false'; // Default ON
+
+      function getAudioContext() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) {
+            audioCtx = new AudioContextClass();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      }
+
+      function playMechanicalClick() {
+        if (!sfxEnabled) return;
+        try {
+          const ctx = getAudioContext();
+          if (!ctx) return;
+          const now = ctx.currentTime;
+
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          // Suara 'tick' frekuensi tinggi (sine wave, 1200Hz drop to 200Hz, durasi 0.04s, volume lembut 0.08)
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.exponentialRampToValueAtTime(200, now + 0.04);
+
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } catch (err) {
+          // Fallback tanpa error console
+        }
+      }
+
+      window.playMechanicalClick = playMechanicalClick;
+
+      // Toggle UI Sound Button in Navbar
+      const sfxBtn = document.getElementById('sfx-toggle');
+      function updateSfxButtonUI() {
+        if (!sfxBtn) return;
+        if (sfxEnabled) {
+          sfxBtn.innerHTML = '🔊 SFX';
+          sfxBtn.setAttribute('title', 'Sound Effects: ON (Klik untuk mematikan)');
+          sfxBtn.classList.remove('muted');
+          sfxBtn.classList.add('active');
+        } else {
+          sfxBtn.innerHTML = '🔇 SFX';
+          sfxBtn.setAttribute('title', 'Sound Effects: OFF (Klik untuk mengaktifkan)');
+          sfxBtn.classList.remove('active');
+          sfxBtn.classList.add('muted');
+        }
+      }
+
+      if (sfxBtn) {
+        updateSfxButtonUI();
+        sfxBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          sfxEnabled = !sfxEnabled;
+          localStorage.setItem('lz_sfx_enabled', sfxEnabled ? 'true' : 'false');
+          updateSfxButtonUI();
+          if (sfxEnabled) {
+            playMechanicalClick();
+          }
+        });
+      }
+
+      // Pasang trigger suara pada tombol CTA, menu navbar, copy email, dan tab proyek
+      const interactiveClickables = 'a, button, .btn, .nav-link, .cred-btn, .timeline-verify-btn, .direct-email, .card-action, .link-card, .cv-card, .tech-card, .direct-wa, .project-card a, .cmd-item';
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest(interactiveClickables);
+        if (target && target.id !== 'sfx-toggle') {
+          playMechanicalClick();
+        }
+      }, true);
+    })();
+
+    // ========================================================================
+    // 3. Micro-Tooltip Manager System (Dark-Glass Minimalist Tooltips)
+    // ========================================================================
+    (function initMicroTooltips() {
+      const tooltipEl = document.getElementById('micro-tooltip');
+      if (!tooltipEl) return;
+
+      let activeTarget = null;
+
+      function updatePosition(target) {
+        if (!target || !tooltipEl.classList.contains('show')) return;
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltipEl.getBoundingClientRect();
+
+        let left = rect.left + rect.width / 2;
+        let top = rect.top - 8;
+
+        const padding = 12;
+        left = Math.max(tooltipRect.width / 2 + padding, Math.min(window.innerWidth - tooltipRect.width / 2 - padding, left));
+        top = Math.max(tooltipRect.height + padding, top);
+
+        tooltipEl.style.left = `${left}px`;
+        tooltipEl.style.top = `${top}px`;
+      }
+
+      document.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('[data-tooltip]');
+        if (target) {
+          const text = target.getAttribute('data-tooltip');
+          if (text) {
+            activeTarget = target;
+            tooltipEl.textContent = text;
+            tooltipEl.classList.add('show');
+            updatePosition(target);
+          }
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseout', (e) => {
+        const target = e.target.closest('[data-tooltip]');
+        if (target && target === activeTarget) {
+          activeTarget = null;
+          tooltipEl.classList.remove('show');
+        }
+      }, { passive: true });
+
+      window.addEventListener('scroll', () => {
+        if (activeTarget) updatePosition(activeTarget);
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        if (activeTarget) updatePosition(activeTarget);
+      }, { passive: true });
+    })();
+
+    // ========================================================================
+    // 4. Quick Command Palette System (Ctrl + K / Cmd + K)
+    // ========================================================================
+    (function initCommandPalette() {
+      const overlay = document.getElementById('cmd-palette-overlay');
+      const input = document.getElementById('cmd-search-input');
+      const triggerBtn = document.getElementById('cmd-palette-trigger');
+      const list = document.getElementById('cmd-list');
+
+      if (!overlay || !list) return;
+
+      let isOpen = false;
+      let activeIndex = 0;
+
+      function getVisibleItems() {
+        return Array.from(list.querySelectorAll('.cmd-item:not(.hidden)'));
+      }
+
+      function updateActiveItem() {
+        const items = getVisibleItems();
+        items.forEach((item, index) => {
+          if (index === activeIndex) {
+            item.classList.add('active');
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+
+      function openPalette() {
+        isOpen = true;
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (input) {
+          input.value = '';
+          filterItems('');
+          setTimeout(() => input.focus(), 60);
+        }
+        activeIndex = 0;
+        updateActiveItem();
+        if (typeof window.playMechanicalClick === 'function') {
+          window.playMechanicalClick();
+        }
+      }
+
+      function closePalette() {
+        isOpen = false;
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (input) input.blur();
+      }
+
+      window.isCommandPaletteOpen = function() {
+        return isOpen;
+      };
+
+      if (triggerBtn) {
+        triggerBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (isOpen) closePalette(); else openPalette();
+        });
+      }
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closePalette();
+        }
+      });
+
+      function filterItems(query) {
+        const q = query.toLowerCase().trim();
+        const items = list.querySelectorAll('.cmd-item');
+        items.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (!q || text.includes(q)) {
+            item.classList.remove('hidden');
+            item.style.display = 'flex';
+          } else {
+            item.classList.add('hidden');
+            item.style.display = 'none';
+          }
+        });
+        activeIndex = 0;
+        updateActiveItem();
+      }
+
+      if (input) {
+        input.addEventListener('input', (e) => {
+          filterItems(e.target.value);
+        });
+      }
+
+      function executeAction(item) {
+        if (!item) return;
+        const action = item.getAttribute('data-action');
+        closePalette();
+
+        setTimeout(() => {
+          switch (action) {
+            case 'cv':
+              window.open('cv-lucky-yan-zuhara.pdf', '_blank');
+              break;
+            case 'lelang': {
+              const projSec = document.getElementById('projects');
+              if (projSec) projSec.scrollIntoView({ behavior: 'smooth' });
+              break;
+            }
+            case 'ccna':
+              window.open('CCNA.pdf', '_blank');
+              break;
+            case 'email':
+              if (typeof copyToClipboard === 'function') {
+                copyToClipboard(null, 'yanzuharalucky@gmail.com');
+              }
+              break;
+            case 'theme': {
+              const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+              if (typeof setTheme === 'function') setTheme(targetTheme, true);
+              break;
+            }
+          }
+        }, 150);
+      }
+
+      list.addEventListener('click', (e) => {
+        const item = e.target.closest('.cmd-item');
+        if (item) {
+          executeAction(item);
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        // Ctrl + K or Cmd + K
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+          e.preventDefault();
+          if (isOpen) closePalette(); else openPalette();
+          return;
+        }
+
+        if (!isOpen) return;
+
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closePalette();
+          return;
+        }
+
+        const items = getVisibleItems();
+        if (!items.length) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = (activeIndex + 1) % items.length;
+          updateActiveItem();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = (activeIndex - 1 + items.length) % items.length;
+          updateActiveItem();
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          executeAction(items[activeIndex]);
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
