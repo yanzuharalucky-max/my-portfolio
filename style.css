@@ -382,9 +382,9 @@
 [data-theme="light"] .project-card,
 [data-theme="light"] .bento-visual,
 [data-theme="light"] .status-widget {
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(148, 163, 184, 0.35) !important;
   box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 10px 25px -5px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
@@ -782,9 +782,9 @@
 :root:not([data-theme="light"]) .hero-photo-card,
 :root:not([data-theme="light"]) .project-card,
 :root:not([data-theme="light"]) .status-widget {
-  background: rgba(15, 23, 42, 0.72) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(56, 189, 248, 0.18) !important;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
@@ -948,6 +948,40 @@
 /* Global Smooth Theme Transition */
 body, .card, header, .nav-links, .btn, .tech-marquee, .bento-card, .project-card, .pillar-card, .credential-card, .tech-card, .timeline-content, .site-header, .hero-bento-card, .greeting-badge, .status-badge, .lang-switch, .sfx-btn, .mobile-menu {
   transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ========================================================================
+   HARDWARE ACCELERATION & GPU COMPOSITING (Smooth 60 FPS)
+   ======================================================================== */
+.project-card,
+.skill-card,
+.skill-panel,
+.pillar-card,
+.bento-card,
+.hero-bento-card,
+.credential-card,
+.timeline-content,
+.experience-card,
+.contact-card,
+.hero-photo-card,
+.profile-card,
+.profile-card-elite,
+.site-header,
+.nav-links,
+.nav-indicator,
+.custom-modal,
+.preview-modal,
+.pdf-modal-container,
+.cmd-palette-card,
+.arch-modal-card,
+.feedback-card,
+.resume-peek-modal,
+.micro-tooltip {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 html {
@@ -1133,12 +1167,14 @@ body.prevent-scroll {
 /* Horizontal Scanner Laser Line */
 .scanner-line {
   position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.8) 35%, #ffffff 50%, rgba(56, 189, 248, 0.8) 65%, transparent 100%);
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.9), 0 0 30px rgba(56, 189, 248, 0.5);
   opacity: 0.18;
+  will-change: transform, opacity;
   animation: scanSweep 2.2s ease-in-out infinite;
   z-index: 3;
   pointer-events: none;
@@ -1146,7 +1182,7 @@ body.prevent-scroll {
 
 @keyframes scanSweep {
   0% {
-    top: 0%;
+    transform: translateY(0);
     opacity: 0;
   }
   15% {
@@ -1156,7 +1192,7 @@ body.prevent-scroll {
     opacity: 0.22;
   }
   100% {
-    top: 100%;
+    transform: translateY(100vh);
     opacity: 0;
   }
 }
@@ -1208,8 +1244,8 @@ body.prevent-scroll {
   border: 1.5px solid rgba(56, 189, 248, 0.3) !important;
   color: #ffffff !important;
   box-shadow: 0 0 25px rgba(56, 189, 248, 0.25), inset 0 0 15px rgba(56, 189, 248, 0.1) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .splash-monogram {
@@ -1402,9 +1438,9 @@ a {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(10, 13, 20, 0.80);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  background: rgba(10, 13, 20, 0.88);
+  backdrop-filter: blur(8px) saturate(1.4);
+  -webkit-backdrop-filter: blur(8px) saturate(1.4);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease);
 }
@@ -1457,11 +1493,11 @@ a {
   align-items: center;
   gap: 4px;
   padding: 4px 6px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .nav-indicator {
@@ -1753,10 +1789,10 @@ a {
 .timeline-content.experience-card,
 .hero-bento-card,
 .info-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 18px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1871,10 +1907,10 @@ a {
 }
 
 .greeting-badge {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(15, 23, 42, 0.75);
   border: 1.5px solid rgba(56, 189, 248, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 9px 18px !important;
   border-radius: 9999px;
   font-family: 'JetBrains Mono', monospace, sans-serif;
@@ -2004,7 +2040,8 @@ a {
   background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   text-decoration: none;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
@@ -2023,9 +2060,9 @@ a {
   margin-top: 24px;
   margin-bottom: 24px;
   flex-wrap: wrap;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 12px 16px;
@@ -2269,10 +2306,10 @@ a {
 .glass-badge {
   position: absolute;
   padding: 8px 16px;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(56, 189, 248, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 999px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
@@ -2298,10 +2335,10 @@ a {
 .glass-badge.bottom-right {
   bottom: 20px;
   right: 20px;
-  background: rgba(5, 7, 10, 0.85);
+  background: rgba(5, 7, 10, 0.90);
   border: 1px solid rgba(56, 189, 248, 0.35);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #38bdf8;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -2499,9 +2536,9 @@ a {
   position: absolute;
   bottom: -16px;
   right: -16px;
-  background: rgba(5, 7, 10, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(5, 7, 10, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.4);
   padding: 10px 16px;
   border-radius: 8px;
@@ -2650,12 +2687,12 @@ a {
 
 .pillar-card {
   padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 3px solid #38bdf8;
   border-radius: 16px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -2719,15 +2756,15 @@ a {
 }
 
 .tech-card {
-  background: var(--bg-surface);
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
   padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 14px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
@@ -2912,12 +2949,12 @@ a {
 }
 
 .credential-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 16px;
   padding: 24px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -3031,9 +3068,9 @@ a {
   height: 100%;
   padding: 22px;
   border-radius: 18px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.25);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -3935,9 +3972,9 @@ a {
 }
 
 .link-card {
-  background: rgba(15, 23, 42, 0.65) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 12px !important;
   padding: 16px 18px !important;
@@ -4614,9 +4651,9 @@ body.intro-done #home .hero-photo-card,
     width: 100% !important;
     z-index: 1000 !important;
     padding: 12px 18px !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    background: rgba(5, 7, 10, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    background: rgba(5, 7, 10, 0.90) !important;
     justify-content: space-between !important;
   }
 
@@ -4637,8 +4674,8 @@ body.intro-done #home .hero-photo-card,
     width: 100% !important;
     margin-top: 10px !important;
     background: rgba(10, 13, 20, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
     border: 1px solid rgba(56, 189, 248, 0.2) !important;
   }
 
@@ -5572,10 +5609,10 @@ body.intro-done #home .hero-photo-card,
 
 /* 3. Header, Navigation & Top Bar Controls */
 [data-theme="light"] .site-header {
-  background: rgba(248, 250, 252, 0.85) !important;
+  background: rgba(248, 250, 252, 0.90) !important;
   border-bottom: 1px solid #e2e8f0 !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
 }
 
 [data-theme="light"] .site-header.scrolled {
@@ -5749,9 +5786,9 @@ body.intro-done #home .hero-photo-card,
 [data-theme="light"] .info-card,
 [data-theme="light"] .profile-card-elite,
 [data-theme="light"] .hero-photo-card {
-  background: rgba(255, 255, 255, 0.78) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  background: rgba(255, 255, 255, 0.90) !important;
+  backdrop-filter: blur(8px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(180%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
   box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 
               0 0 0 1px rgba(2, 132, 199, 0.06),
@@ -5823,9 +5860,9 @@ body.intro-done #home .hero-photo-card,
 }
 
 [data-theme="light"] .tech-marquee {
-  background: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   border-top: 1px solid rgba(226, 232, 240, 0.8) !important;
   border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
 }
@@ -6544,7 +6581,7 @@ body.intro-done #home .hero-photo-card,
   position: fixed;
   z-index: 999999;
   padding: 5px 12px;
-  background: rgba(10, 14, 23, 0.92);
+  background: rgba(10, 14, 23, 0.95);
   border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
@@ -6552,8 +6589,8 @@ body.intro-done #home .hero-photo-card,
   font-weight: 600;
   color: #f8fafc;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(56, 189, 248, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   pointer-events: none;
   opacity: 0;
   transform: translateY(4px) scale(0.95);
@@ -6613,9 +6650,9 @@ body.intro-done #home .hero-photo-card,
   position: fixed;
   inset: 0;
   z-index: 999999;
-  background: rgba(5, 7, 10, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 7, 10, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -6897,9 +6934,9 @@ body.intro-done #home .hero-photo-card,
   font-size: 0.76rem;
   font-weight: 500;
   color: #f8fafc;
-  background: rgba(15, 23, 42, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 8px;
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(56, 189, 248, 0.15);
@@ -7443,9 +7480,9 @@ html, body {
   gap: 8px;
   padding: 10px 18px;
   border-radius: 9999px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.4);
   color: #f8fafc;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -7496,8 +7533,8 @@ html, body {
 .feedback-card {
   width: min(520px, calc(100vw - 32px));
   background: rgba(11, 17, 32, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 20px;
   box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.85), 0 0 40px rgba(56, 189, 248, 0.22);
@@ -8015,9 +8052,9 @@ html, body {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(8, 12, 22, 0.84);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(8, 12, 22, 0.88);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
@@ -8490,9 +8527,9 @@ button.timeline-verify-btn.btn-preview-modal-trigger:hover {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(8, 12, 22, 0.88);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(8, 12, 22, 0.90);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
