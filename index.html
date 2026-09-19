@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#080d1a">
   <meta name="color-scheme" content="dark light">
 
   <!-- Primary Meta Tags -->
@@ -590,97 +590,82 @@
               <div class="watermark">&lt;/&gt;</div>
             </div>
           </div>
-          <div class="project-top">
-            <span class="project-tag neon-badge" data-tooltip="Kategori Studi Kasus Proyek Enterprise">ENTERPRISE CASE
-              STUDY</span>
-          </div>
-          <h3 data-i18n="proj1_title">Platform Lelang Digital Terintegrasi</h3>
+          <div class="project-card-body">
+            <div class="project-top">
+              <span class="project-tag neon-badge" data-tooltip="Kategori Studi Kasus Proyek Enterprise">ENTERPRISE CASE STUDY</span>
+            </div>
+            <h3 data-i18n="proj1_title">Platform Lelang Digital Terintegrasi</h3>
 
-          <!-- Publikasi Riset Ilmiah Card (Dark Glassmorphism) -->
-          <div class="project-research-card">
-            <div class="research-badge-row">
-              <span class="research-verified-badge">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-                Published Research Paper (E-ISSN: 3025-0994)
+            <!-- Compact Research Journal Banner -->
+            <div class="journal-compact-banner">
+              <span class="journal-compact-badge" data-tooltip="Sitasi: Indonesian Journal of Innovation Multidisipliner Research (Vol. 4 No. 2, 2026)">
+                📄 Jurnal Ilmiah (E-ISSN: 3025-0994)
               </span>
-            </div>
-            <div class="research-citation-wrap">
-              <span class="research-citation-label">Sitasi Jurnal Resmi:</span>
-              <p class="research-citation-text">
-                <strong>Indonesian Journal of Innovation Multidisipliner Research</strong>, Vol. 4 No. 2, 2026
-              </p>
-            </div>
-            <div class="research-card-actions">
-              <button type="button" class="btn-research-pdf btn-preview-modal-trigger"
+              <button type="button" class="btn-journal-preview-mini"
                 onclick="openPdfModal('JURNAL PUBLISH LUCKY.pdf', 'Publikasi Jurnal Ilmiah — Platform Seleno Lelang Digital')"
-                data-tooltip="Pratinjau Naskah Jurnal Langsung di Layar">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
+                data-tooltip="Pratinjau Naskah Jurnal Ilmiah Langsung di Layar">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
-                <span>Pratinjau Dokumen</span>
+                <span>Pratinjau Jurnal</span>
               </button>
-              <a href="JURNAL PUBLISH LUCKY.pdf" target="_blank" rel="noopener" class="btn-research-pdf"
-                data-tooltip="Buka Naskah Lengkap Jurnal Ilmiah (PDF)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="12" y1="18" x2="12" y2="12"></line>
-                  <line x1="9" y1="15" x2="12" y2="18"></line>
-                  <line x1="15" y1="15" x2="12" y2="18"></line>
-                </svg>
-                <span>Lihat Jurnal (PDF)</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" class="arrow-ext">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
+            </div>
+
+            <a href="https://tangselxpress.com/2026/04/29/mahasiswa-unpam-rancang-website-seleno-lelang-sebagai-platform-lelang-digital-berbasis-web/"
+              target="_blank" rel="noopener noreferrer" class="media-coverage-badge">
+              <span class="media-icon">📰</span>
+              <span class="media-text" data-i18n="proj1_media">Diliput Media: <strong>TangselXpress</strong></span>
+              <span class="arrow-ext">↗</span>
+            </a>
+
+            <p data-i18n="proj1_desc">Sistem web lelang berbasis langganan dengan integrasi basis data real-time, validasi transaksi aman, dan dashboard responsif.</p>
+
+            <!-- Key Engineering Metrics -->
+            <div class="project-metrics">
+              <span class="metric-badge" data-tooltip="Waktu respon query &amp; transaksi sub-detik">⚡ Sub-second Response Latency</span>
+              <span class="metric-badge" data-tooltip="Autentikasi &amp; otorisasi bertingkat Admin, Vendor, Buyer">🔒 Multi-tier RBAC Security</span>
+              <span class="metric-badge" data-tooltip="Pengujian 8 skenario fungsionalitas 100% valid">🧪 100% Black Box Testing Pass Rate</span>
+            </div>
+
+            <div class="project-stack-pills">
+              <span class="stack-pill" data-tooltip="Framework Backend MVC PHP &amp; Routing">Laravel (PHP)</span>
+              <span class="stack-pill" data-tooltip="Sistem Manajemen Basis Data Relasional ACID">MariaDB</span>
+              <span class="stack-pill" data-tooltip="Integrasi Payment Gateway Otomatis">Midtrans API</span>
+              <span class="stack-pill" data-tooltip="Otorisasi Hak Akses Multi-Level">RBAC Auth</span>
             </div>
           </div>
 
-          <a href="https://tangselxpress.com/2026/04/29/mahasiswa-unpam-rancang-website-seleno-lelang-sebagai-platform-lelang-digital-berbasis-web/"
-            target="_blank" rel="noopener noreferrer" class="media-coverage-badge">
-            <span class="media-icon">📰</span>
-            <span class="media-text" data-i18n="proj1_media">Diliput Media: <strong>TangselXpress</strong></span>
-            <span class="arrow-ext">↗</span>
-          </a>
-          <p data-i18n="proj1_desc">Sistem web lelang berbasis langganan dengan integrasi basis data real-time, validasi
-            transaksi aman, dan antarmuka dashboard responsif.</p>
-
-          <!-- Performance Metrics -->
-          <div class="project-metrics">
-            <span class="metric-badge">⚡ Sub-second Latency</span>
-            <span class="metric-badge">🛡️ Role-Based Auth</span>
-            <span class="metric-badge">📊 Real-time Sync</span>
-          </div>
-
-          <div class="project-stack-pills">
-            <span class="stack-pill" data-tooltip="Bahasa Backend Server &amp; Routing">PHP</span>
-            <span class="stack-pill" data-tooltip="Sistem Manajemen Basis Data Relasional">MySQL</span>
-            <span class="stack-pill" data-tooltip="Arsitektur API Client-Server RESTful">REST API</span>
-          </div>
-          <div class="project-links">
-            <a href="#" target="_blank" rel="noopener" class="btn-source">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                <path
-                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+          <!-- Pinned Footer Action Buttons -->
+          <div class="project-links card-footer">
+            <a href="#" target="_blank" rel="noopener" class="btn-source" title="Source Code">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
               </svg>
-              Source Code
+              <span>Code</span>
             </a>
-            <button type="button" class="btn-demo" onclick="openProjectPreview()">
-              Live Demo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
+            <a href="JURNAL PUBLISH LUCKY.pdf" target="_blank" rel="noopener" class="btn-pdf-link" title="Buka Naskah Jurnal Lengkap (PDF)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="12" y2="18"></line>
+                <line x1="15" y1="15" x2="12" y2="18"></line>
+              </svg>
+              <span>Jurnal PDF</span>
+            </a>
+            <button type="button" class="btn-arch" onclick="openArchModal()" data-tooltip="Lihat Diagram Arsitektur &amp; Alur Data Sistem">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Arsitektur</span>
+            </button>
+            <button type="button" class="btn-demo" onclick="openProjectPreview()" title="Live Demo">
+              <span>Live Demo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
@@ -699,41 +684,37 @@
               <div class="watermark">{ }</div>
             </div>
           </div>
-          <div class="project-top">
-            <span class="project-tag" data-tooltip="Bidang Sistem Pakar &amp; Backend Reasoning">EXPERT SYSTEM //
-              BACKEND</span>
+          <div class="project-card-body">
+            <div class="project-top">
+              <span class="project-tag" data-tooltip="Bidang Sistem Pakar &amp; Backend Reasoning">EXPERT SYSTEM // BACKEND</span>
+            </div>
+            <h3 data-i18n="proj2_title">Sistem Pakar Diagnosa Medis</h3>
+            <div class="project-highlight-badge">
+              <span class="highlight-icon">🔬</span>
+              <span class="highlight-text">Metode: <strong>Forward Chaining Inference</strong></span>
+            </div>
+            <p data-i18n="proj2_desc">Aplikasi inferensi berbasis aturan (rule-based reasoning) untuk memetakan gejala klinis pasien dan menghasilkan diagnosa awal akurat.</p>
+            <div class="project-metrics">
+              <span class="metric-badge">⚡ &lt;100ms Inference</span>
+              <span class="metric-badge">🧠 20+ Clinical Rules</span>
+              <span class="metric-badge">🛡️ Input Validation</span>
+            </div>
+            <div class="project-stack-pills">
+              <span class="stack-pill" data-tooltip="Micro-framework Web Python Flask">Python (Flask)</span>
+              <span class="stack-pill" data-tooltip="Struktur &amp; Styling Antarmuka Web">HTML5/CSS3</span>
+              <span class="stack-pill" data-tooltip="Pola Pemisahan Kode Terstruktur">Modular Architecture</span>
+            </div>
           </div>
-          <h3 data-i18n="proj2_title">Sistem Pakar Diagnosa Medis</h3>
-          <div class="project-highlight-badge">
-            <span class="highlight-icon">🔬</span>
-            <span class="highlight-text">Metode: <strong>Forward Chaining Inference</strong></span>
-          </div>
-          <p data-i18n="proj2_desc">Aplikasi inferensi berbasis aturan (rule-based reasoning) untuk memetakan gejala
-            klinis pasien dan
-            menghasilkan diagnosa awal akurat.</p>
-          <div class="project-metrics">
-            <span class="metric-badge">⚡ &lt;100ms Inference</span>
-            <span class="metric-badge">🧠 20+ Clinical Rules</span>
-            <span class="metric-badge">🛡️ Input Validation</span>
-          </div>
-          <div class="project-stack-pills">
-            <span class="stack-pill" data-tooltip="Micro-framework Web Python Flask">Python (Flask)</span>
-            <span class="stack-pill" data-tooltip="Struktur &amp; Styling Antarmuka Web">HTML5/CSS3</span>
-            <span class="stack-pill" data-tooltip="Pola Pemisahan Kode Terstruktur">Modular Architecture</span>
-          </div>
-          <div class="project-links">
+          <div class="project-links card-footer">
             <a href="https://github.com/yanzuharalucky-max" target="_blank" rel="noopener" class="btn-source">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                <path
-                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
               </svg>
-              Source Code
+              <span>Source Code</span>
             </a>
-            <a href="https://sistem-pakar-rule-model-1--yanzuharalucky.replit.app" target="_blank" rel="noopener"
-              class="btn-demo">
-              Live Demo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
+            <a href="https://sistem-pakar-rule-model-1--yanzuharalucky.replit.app" target="_blank" rel="noopener" class="btn-demo">
+              <span>Live Demo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
@@ -752,39 +733,37 @@
               <div class="watermark">$</div>
             </div>
           </div>
-          <div class="project-top">
-            <span class="project-tag" data-tooltip="Kategori Aplikasi Keuangan Web Interaktif">FINANCIAL WEB APP</span>
+          <div class="project-card-body">
+            <div class="project-top">
+              <span class="project-tag" data-tooltip="Kategori Aplikasi Keuangan Web Interaktif">FINANCIAL WEB APP</span>
+            </div>
+            <h3 data-i18n="proj3_title">Keuangan Saku (Manajemen Finansial)</h3>
+            <div class="project-highlight-badge">
+              <span class="highlight-icon">💳</span>
+              <span class="highlight-text">Arsitektur: <strong>Client-Side Local-First PWA</strong></span>
+            </div>
+            <p data-i18n="proj3_desc">Aplikasi pencatatan dan monitoring arus kas interaktif dengan visualisasi pengeluaran dan tata letak responsif adaptif.</p>
+            <div class="project-metrics">
+              <span class="metric-badge">⚡ Instant Offline Load</span>
+              <span class="metric-badge">📊 Dynamic Chart.js</span>
+              <span class="metric-badge">🔒 100% Data Privacy</span>
+            </div>
+            <div class="project-stack-pills">
+              <span class="stack-pill" data-tooltip="Logika Interaktif Client-side Vanilla JS">JavaScript</span>
+              <span class="stack-pill" data-tooltip="Tata Letak Responsif Flexbox &amp; Grid">Modern CSS Flex/Grid</span>
+              <span class="stack-pill" data-tooltip="Penyimpanan Data Sisi Klien Browser">Local Storage</span>
+            </div>
           </div>
-          <h3 data-i18n="proj3_title">Keuangan Saku (Manajemen Finansial)</h3>
-          <div class="project-highlight-badge">
-            <span class="highlight-icon">💳</span>
-            <span class="highlight-text">Arsitektur: <strong>Client-Side Local-First PWA</strong></span>
-          </div>
-          <p data-i18n="proj3_desc">Aplikasi pencatatan dan monitoring arus kas interaktif dengan visualisasi
-            pengeluaran dan tata letak
-            responsif adaptif.</p>
-          <div class="project-metrics">
-            <span class="metric-badge">⚡ Instant Offline Load</span>
-            <span class="metric-badge">📊 Dynamic Chart.js</span>
-            <span class="metric-badge">🔒 100% Data Privacy</span>
-          </div>
-          <div class="project-stack-pills">
-            <span class="stack-pill" data-tooltip="Logika Interaktif Client-side Vanilla JS">JavaScript</span>
-            <span class="stack-pill" data-tooltip="Tata Letak Responsif Flexbox &amp; Grid">Modern CSS Flex/Grid</span>
-            <span class="stack-pill" data-tooltip="Penyimpanan Data Sisi Klien Browser">Local Storage</span>
-          </div>
-          <div class="project-links">
+          <div class="project-links card-footer">
             <a href="https://github.com/yanzuharalucky-max" target="_blank" rel="noopener" class="btn-source">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-                <path
-                  d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 .5A7.5 7.5 0 0 0 5.63 15.13c.37.07.5-.17.5-.37v-1.3c-2.06.45-2.5-1-2.5-1-.34-.87-.83-1.1-.83-1.1-.68-.46.05-.45.05-.45.75.05 1.15.77 1.15.77.67 1.14 1.75.81 2.18.62.07-.48.26-.81.47-1-1.63-.18-3.35-.82-3.35-3.63 0-.8.29-1.46.76-1.97-.08-.19-.33-.93.07-1.95 0 0 .62-.2 2.04.76a7.1 7.1 0 0 1 3.74 0c1.41-.96 2.04-.76 2.04-.76.4 1.02.15 1.76.07 1.95.48.51.76 1.17.76 1.97 0 2.82-1.72 3.44-3.36 3.62.26.23.5.67.5 1.36v2.02c0 .2.13.44.5.37A7.5 7.5 0 0 0 8 .5z" />
               </svg>
-              Source Code
+              <span>Source Code</span>
             </a>
             <a href="https://mysaku.page.gd/" target="_blank" rel="noopener" class="btn-demo">
-              Live Demo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
+              <span>Live Demo</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
@@ -1520,6 +1499,241 @@
     </div>
   </div>
 
+  <!-- ====== System Architecture & Engineering Flow Modal (Dark Glassmorphism) ====== -->
+  <div id="arch-preview-overlay" class="cmd-modal-overlay arch-modal-overlay" aria-hidden="true"
+    onclick="if(event.target===this) closeArchModal()">
+    <div class="cmd-palette-card arch-modal-card" role="dialog" aria-modal="true" aria-labelledby="archModalTitle">
+      <!-- Modal Header -->
+      <div class="cmd-header arch-modal-header">
+        <div class="arch-modal-title-group">
+          <span class="arch-modal-dot"></span>
+          <div class="arch-modal-text-wrap">
+            <span class="arch-modal-category">SYSTEM ARCHITECTURE // FULL-STACK SPECIFICATION</span>
+            <h3 id="archModalTitle" class="arch-modal-title">Arsitektur Sistem &amp; Alur Data — Platform Lelang Digital</h3>
+          </div>
+        </div>
+        <button type="button" class="cmd-badge-esc arch-close-btn" onclick="closeArchModal()"
+          aria-label="Tutup Modal Arsitektur" data-tooltip="Tutup (ESC)">ESC</button>
+      </div>
+
+      <!-- Modal Body (Scrollable Container) -->
+      <div class="arch-modal-body">
+
+        <!-- Architecture Overview Banner -->
+        <div class="arch-hero-banner">
+          <div class="arch-badge-row">
+            <span class="arch-spec-badge">🏢 Enterprise Monolith Architecture</span>
+            <span class="arch-spec-badge">⚡ Laravel MVC + MariaDB</span>
+            <span class="arch-spec-badge">💳 Midtrans Automated Webhook</span>
+          </div>
+          <p class="arch-hero-desc">
+            Sistem dirancang dengan arsitektur <strong>Model-View-Controller (MVC) terstruktur</strong>, menerapkan middleware <strong>Role-Based Access Control (RBAC)</strong> berlapis untuk menjamin isolasi hak akses (Admin, Vendor, Buyer), serta integrasi payment gateway asinkron dengan verifikasi data otomatis.
+          </p>
+        </div>
+
+        <!-- Key Engineering Metrics Grid -->
+        <div class="arch-metrics-grid">
+          <div class="arch-metric-card">
+            <div class="arch-metric-icon">⚡</div>
+            <div class="arch-metric-data">
+              <span class="arch-metric-value">&lt; 250ms</span>
+              <span class="arch-metric-label">Response Latency</span>
+            </div>
+            <p class="arch-metric-detail">Optimasi query MySQL berindeks &amp; caching query ringan.</p>
+          </div>
+          <div class="arch-metric-card">
+            <div class="arch-metric-icon">🔒</div>
+            <div class="arch-metric-data">
+              <span class="arch-metric-value">Multi-Tier RBAC</span>
+              <span class="arch-metric-label">Access Control</span>
+            </div>
+            <p class="arch-metric-detail">Isolasi rute dan otorisasi independen Admin, Vendor, Buyer.</p>
+          </div>
+          <div class="arch-metric-card">
+            <div class="arch-metric-icon">🧪</div>
+            <div class="arch-metric-data">
+              <span class="arch-metric-value">100% Valid</span>
+              <span class="arch-metric-label">Black Box Testing</span>
+            </div>
+            <p class="arch-metric-detail">Semua 8 skenario pengujian fungsionalitas 100% valid.</p>
+          </div>
+          <div class="arch-metric-card">
+            <div class="arch-metric-icon">🔄</div>
+            <div class="arch-metric-data">
+              <span class="arch-metric-value">Real-Time Sync</span>
+              <span class="arch-metric-label">Webhook Verification</span>
+            </div>
+            <p class="arch-metric-detail">Validasi signature SHA-512 &amp; auto-settlement instan.</p>
+          </div>
+        </div>
+
+        <!-- Diagram 1: Request Processing & MVC Flow -->
+        <div class="arch-diagram-section">
+          <div class="arch-section-header">
+            <span class="arch-step-badge">PIPELINE 01</span>
+            <h4>Alur Pemrosesan Request &amp; Keamanan RBAC (MVC Flow)</h4>
+          </div>
+          <p class="arch-section-sub">
+            Bagaimana permintaan pengguna diproses dari peramban hingga tersimpan aman pada basis data relasional:
+          </p>
+          <div class="arch-flow-wrapper">
+            <!-- Node 1 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">01</span>
+                <span class="node-icon">🌐</span>
+              </div>
+              <h5 class="node-title">Client Browser</h5>
+              <p class="node-desc">Klien berinteraksi melalui browser (penawaran lelang, registrasi, deposit). Setiap request dilindungi token CSRF.</p>
+              <div class="node-tech">HTML5 / Fetch API</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">02</span>
+                <span class="node-icon">⚡</span>
+              </div>
+              <h5 class="node-title">Laravel Routing &amp; Request</h5>
+              <p class="node-desc">Dispatching rute HTTP, sanitasi input form data, dan penegakan limitasi frekuensi request (rate limiting).</p>
+              <div class="node-tech">Route &amp; FormRequest</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="arch-flow-node highlight-node">
+              <div class="node-header">
+                <span class="node-num">03</span>
+                <span class="node-icon">🛡️</span>
+              </div>
+              <h5 class="node-title">RBAC Security Middleware</h5>
+              <p class="node-desc">Verifikasi sesi login &amp; otorisasi peran (Role-Based Access): Admin (approval), Vendor (katalog), Buyer (bid).</p>
+              <div class="node-tech">Auth &amp; RBAC Guard</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">04</span>
+                <span class="node-icon">🧠</span>
+              </div>
+              <h5 class="node-title">Controller &amp; Logic</h5>
+              <p class="node-desc">Eksekusi aturan lelang: validasi kelipatan harga, pengecekan waktu countdown, dan kalkulasi pemenang bid.</p>
+              <div class="node-tech">MVC Business Logic</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 5 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">05</span>
+                <span class="node-icon">🗄️</span>
+              </div>
+              <h5 class="node-title">MariaDB Database</h5>
+              <p class="node-desc">Penyimpanan relasional ACID terindeks: Users, Bids, Auctions, Deposits, dan audit log transaksi aman.</p>
+              <div class="node-tech">MariaDB 10.x / InnoDB</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagram 2: Payment Gateway & Webhook Flow -->
+        <div class="arch-diagram-section">
+          <div class="arch-section-header">
+            <span class="arch-step-badge">PIPELINE 02</span>
+            <h4>Alur Pembayaran Otomatis &amp; Webhook Callback (Midtrans)</h4>
+          </div>
+          <p class="arch-section-sub">
+            Integrasi sistem pembayaran asinkron multi-channel dengan verifikasi otomatis server-ke-server:
+          </p>
+          <div class="arch-flow-wrapper">
+            <!-- Node 1 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">01</span>
+                <span class="node-icon">🛒</span>
+              </div>
+              <h5 class="node-title">Client Checkout</h5>
+              <p class="node-desc">User memilih deposit saldo / langganan paket. Backend merequest Snap Token transaksi ke server Midtrans.</p>
+              <div class="node-tech">Snap.js / Client UI</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">02</span>
+                <span class="node-icon">💳</span>
+              </div>
+              <h5 class="node-title">Midtrans Payment Gateway</h5>
+              <p class="node-desc">User menyelesaikan pembayaran via QRIS, Virtual Account (BCA/BNI/Mandiri/BRI), atau E-Wallet terenkripsi.</p>
+              <div class="node-tech">Midtrans Core API</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="arch-flow-node highlight-node">
+              <div class="node-header">
+                <span class="node-num">03</span>
+                <span class="node-icon">🔄</span>
+              </div>
+              <h5 class="node-title">Webhook / IPN Callback</h5>
+              <p class="node-desc">Midtrans mengirimkan HTTP POST notifikasi asinkron ke server backend. Sistem memvalidasi Signature Key SHA-512.</p>
+              <div class="node-tech">HMAC SHA-512 Auth</div>
+            </div>
+
+            <div class="arch-flow-arrow">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="arch-flow-node">
+              <div class="node-header">
+                <span class="node-num">04</span>
+                <span class="node-icon">⚡</span>
+              </div>
+              <h5 class="node-title">Verifikasi &amp; Auto-Update</h5>
+              <p class="node-desc">Database transaction berjalan otomatis: status pembayaran diubah ke Settlement, saldo bertambah, akses aktif.</p>
+              <div class="node-tech">Auto State Settlement</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="cmd-footer arch-modal-footer">
+        <div class="arch-footer-tags">
+          <span class="arch-tag">Laravel MVC</span>
+          <span class="arch-tag">MariaDB</span>
+          <span class="arch-tag">Midtrans Snap</span>
+          <span class="arch-tag">RBAC Security</span>
+          <span class="arch-tag">Black Box 100%</span>
+        </div>
+        <button type="button" class="btn-arch-close" onclick="closeArchModal()">Tutup Modal</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ====== Scripts ====== -->
   <script>
     // --- Instant Credential PDF Preview Modal Logic ---
@@ -1573,6 +1787,27 @@
         loader.style.display = 'none';
       }
       if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+    }
+
+    // --- System Architecture Modal Logic ---
+    function openArchModal() {
+      const overlay = document.getElementById('arch-preview-overlay');
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
+    }
+
+    function closeArchModal() {
+      const overlay = document.getElementById('arch-preview-overlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
     }
 
     // --- Modals Logic (Project Preview & CV Peek & Feedback) ---
@@ -1746,6 +1981,7 @@ _Dikirim via Formulir Masukan Portofolio Lucky Yan Zuhara_`;
         closeCvPeek();
         closeFeedbackModal();
         closePdfModal();
+        closeArchModal();
       }
     });
 
