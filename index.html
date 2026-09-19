@@ -4,16 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Lucky Yan Zuhara — Frontend & Software Engineer">
-  <meta property="og:description"
-    content="Portofolio resmi rekayasa antarmuka web modern, clean architecture, dan sistem digital.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>Lucky Yan Zuhara — Frontend Developer & Software Engineer</title>
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Primary Meta Tags -->
+  <title>Lucky Yan Zuhara | Software Engineer &amp; Frontend Specialist</title>
+  <meta name="title" content="Lucky Yan Zuhara | Software Engineer &amp; Frontend Specialist">
   <meta name="description"
-    content="Portfolio Lucky Yan Zuhara — Mahasiswa S1 Teknik Informatika Universitas Pamulang yang berfokus pada web development dan UI intuitif.">
+    content="Portofolio Rekayasa Perangkat Lunak, Penulis Pertama Publikasi Jurnal Lelang Digital, dan Cisco CCNA Certified Network Associate.">
   <meta name="author" content="Lucky Yan Zuhara">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yanzuharalucky-max.github.io/my-portfolio/">
+  <meta property="og:site_name" content="Lucky Yan Zuhara Portfolio">
+  <meta property="og:title" content="Lucky Yan Zuhara | Software Engineer &amp; Frontend Specialist">
+  <meta property="og:description"
+    content="Portofolio Rekayasa Perangkat Lunak, Penulis Pertama Publikasi Jurnal Lelang Digital, dan Cisco CCNA Certified Network Associate.">
+  <meta property="og:image" content="https://yanzuharalucky-max.github.io/my-portfolio/saya.jpeg">
+  <meta property="og:image:secure_url" content="https://yanzuharalucky-max.github.io/my-portfolio/saya.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucky Yan Zuhara — Software Engineer &amp; Frontend Specialist">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yanzuharalucky-max.github.io/my-portfolio/">
+  <meta name="twitter:title" content="Lucky Yan Zuhara | Software Engineer &amp; Frontend Specialist">
+  <meta name="twitter:description"
+    content="Portofolio Rekayasa Perangkat Lunak, Penulis Pertama Publikasi Jurnal Lelang Digital, dan Cisco CCNA Certified Network Associate.">
+  <meta name="twitter:image" content="https://yanzuharalucky-max.github.io/my-portfolio/saya.jpeg">
+  <meta name="twitter:image:alt" content="Lucky Yan Zuhara — Software Engineer &amp; Frontend Specialist">
+
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -514,6 +537,16 @@
               </div>
 
               <div class="cred-actions">
+                <button type="button" class="cred-btn btn-preview-modal-trigger"
+                  onclick="openPdfModal('CCNA-_Switching.pdf', 'Sertifikat Cisco CCNA — Switching, Routing &amp; Wireless')"
+                  data-tooltip="Pratinjau Langsung Kredensial CCNA (PDF)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <span>Pratinjau Dokumen</span>
+                </button>
                 <a href="CCNA.pdf" target="_blank" class="cred-btn">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -585,6 +618,16 @@
               </p>
             </div>
             <div class="research-card-actions">
+              <button type="button" class="btn-research-pdf btn-preview-modal-trigger"
+                onclick="openPdfModal('JURNAL PUBLISH LUCKY.pdf', 'Publikasi Jurnal Ilmiah — Platform Seleno Lelang Digital')"
+                data-tooltip="Pratinjau Naskah Jurnal Langsung di Layar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Pratinjau Dokumen</span>
+              </button>
               <a href="JURNAL PUBLISH LUCKY.pdf" target="_blank" rel="noopener" class="btn-research-pdf"
                 data-tooltip="Buka Naskah Lengkap Jurnal Ilmiah (PDF)">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -634,15 +677,6 @@
               </svg>
               Source Code
             </a>
-            <a href="JURNAL PUBLISH LUCKY.pdf" target="_blank" rel="noopener" class="btn-journal-secondary"
-              data-tooltip="Buka Naskah Jurnal Ilmiah (PDF)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
-              Lihat Jurnal (PDF)
-            </a>
             <button type="button" class="btn-demo" onclick="openProjectPreview()">
               Live Demo
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -670,9 +704,18 @@
               BACKEND</span>
           </div>
           <h3 data-i18n="proj2_title">Sistem Pakar Diagnosa Medis</h3>
+          <div class="project-highlight-badge">
+            <span class="highlight-icon">🔬</span>
+            <span class="highlight-text">Metode: <strong>Forward Chaining Inference</strong></span>
+          </div>
           <p data-i18n="proj2_desc">Aplikasi inferensi berbasis aturan (rule-based reasoning) untuk memetakan gejala
             klinis pasien dan
             menghasilkan diagnosa awal akurat.</p>
+          <div class="project-metrics">
+            <span class="metric-badge">⚡ &lt;100ms Inference</span>
+            <span class="metric-badge">🧠 20+ Clinical Rules</span>
+            <span class="metric-badge">🛡️ Input Validation</span>
+          </div>
           <div class="project-stack-pills">
             <span class="stack-pill" data-tooltip="Micro-framework Web Python Flask">Python (Flask)</span>
             <span class="stack-pill" data-tooltip="Struktur &amp; Styling Antarmuka Web">HTML5/CSS3</span>
@@ -713,9 +756,18 @@
             <span class="project-tag" data-tooltip="Kategori Aplikasi Keuangan Web Interaktif">FINANCIAL WEB APP</span>
           </div>
           <h3 data-i18n="proj3_title">Keuangan Saku (Manajemen Finansial)</h3>
+          <div class="project-highlight-badge">
+            <span class="highlight-icon">💳</span>
+            <span class="highlight-text">Arsitektur: <strong>Client-Side Local-First PWA</strong></span>
+          </div>
           <p data-i18n="proj3_desc">Aplikasi pencatatan dan monitoring arus kas interaktif dengan visualisasi
             pengeluaran dan tata letak
             responsif adaptif.</p>
+          <div class="project-metrics">
+            <span class="metric-badge">⚡ Instant Offline Load</span>
+            <span class="metric-badge">📊 Dynamic Chart.js</span>
+            <span class="metric-badge">🔒 100% Data Privacy</span>
+          </div>
           <div class="project-stack-pills">
             <span class="stack-pill" data-tooltip="Logika Interaktif Client-side Vanilla JS">JavaScript</span>
             <span class="stack-pill" data-tooltip="Tata Letak Responsif Flexbox &amp; Grid">Modern CSS Flex/Grid</span>
@@ -796,10 +848,15 @@
               <span class="tag" data-tooltip="Perancangan Struktur Software">System Architecture</span>
               <span class="tag" data-tooltip="Black Box Testing 100% Valid">100% Validated</span>
             </div>
-            <div style="margin-top: 14px;">
+            <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;">
+              <button type="button" class="timeline-verify-btn btn-preview-modal-trigger"
+                onclick="openPdfModal('JURNAL PUBLISH LUCKY.pdf', 'Publikasi Jurnal Ilmiah — Platform Seleno Lelang Digital')"
+                style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                👁️ Pratinjau Dokumen
+              </button>
               <a href="JURNAL PUBLISH LUCKY.pdf" target="_blank" rel="noopener" class="timeline-verify-btn"
                 style="display: inline-flex; align-items: center; gap: 6px;">
-                📄 Lihat Jurnal (PDF) ↗
+                📄 Unduh Jurnal (PDF) ↗
               </a>
             </div>
           </div>
@@ -817,8 +874,15 @@
                 </div>
                 <h3 class="timeline-role">Cisco Certified: CCNA (Switching, Routing & Wireless)</h3>
               </div>
-              <a href="CCNA.pdf" target="_blank" class="timeline-verify-btn" data-i18n="exp3_verify">Lihat Sertifikat
-                ↗</a>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+                <button type="button" class="timeline-verify-btn btn-preview-modal-trigger"
+                  onclick="openPdfModal('CCNA-_Switching.pdf', 'Sertifikat Cisco CCNA — Switching, Routing &amp; Wireless')"
+                  style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+                  👁️ Pratinjau Dokumen
+                </button>
+                <a href="CCNA.pdf" target="_blank" class="timeline-verify-btn" data-i18n="exp3_verify">Lihat Sertifikat
+                  ↗</a>
+              </div>
             </div>
             <p class="timeline-desc" data-i18n="exp3_desc">Credential ID: <code
                 class="credential-id">161937ce-1479-4d90-aa8b-110c7b3904f5</code> melalui Cisco Networking Academy &
@@ -1391,8 +1455,126 @@
     </div>
   </div>
 
+  <!-- ====== Instant Credential PDF Preview Modal (Enterprise Glassmorphism) ====== -->
+  <div id="pdf-preview-overlay" class="pdf-modal-overlay" aria-hidden="true"
+    onclick="if(event.target===this) closePdfModal()">
+    <div class="pdf-modal-container" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+      <!-- Modal Header -->
+      <div class="pdf-modal-header">
+        <div class="pdf-modal-title-group">
+          <span class="pdf-modal-dot"></span>
+          <div class="pdf-modal-text-wrap">
+            <span class="pdf-modal-category">DOCUMENT INSPECTOR // VERIFIED ARTIFACT</span>
+            <h3 id="pdfModalTitle" class="pdf-modal-title">Pratinjau Dokumen</h3>
+          </div>
+        </div>
+        <div class="pdf-modal-actions">
+          <a id="pdfOpenNewTabBtn" href="#" target="_blank" rel="noopener" class="pdf-modal-action-btn"
+            title="Buka di Tab Baru" data-tooltip="Buka di Tab Baru">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span class="btn-text-hide-mobile">Tab Baru</span>
+          </a>
+          <a id="pdfDownloadBtn" href="#" download class="pdf-modal-action-btn" title="Unduh PDF"
+            data-tooltip="Unduh Berkas">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="btn-text-hide-mobile">Unduh</span>
+          </a>
+          <button type="button" class="pdf-modal-close-btn" onclick="closePdfModal()"
+            aria-label="Tutup Pratinjau Dokumen" data-tooltip="Tutup (ESC)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- PDF Viewer Body with Dynamic Loader -->
+      <div class="pdf-modal-body">
+        <div id="pdfLoadingIndicator" class="pdf-loading-indicator">
+          <div class="pdf-loading-spinner"></div>
+          <span class="pdf-loading-text">Memuat pratinjau dokumen beresolusi tinggi...</span>
+        </div>
+        <iframe id="pdfPreviewFrame" class="pdf-preview-iframe" src="about:blank" title="PDF Document Viewer"></iframe>
+      </div>
+
+      <!-- Modal Footer Status Bar -->
+      <div class="pdf-modal-footer">
+        <div class="pdf-footer-status">
+          <span class="pdf-status-badge">SECURE EMBED</span>
+          <span id="pdfFooterMeta" class="pdf-footer-meta">Dokumen Terverifikasi</span>
+        </div>
+        <span class="pdf-footer-tip">Tekan <kbd>ESC</kbd> untuk menutup pratinjau</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ====== Scripts ====== -->
   <script>
+    // --- Instant Credential PDF Preview Modal Logic ---
+    function openPdfModal(pdfUrl, titleText) {
+      const overlay = document.getElementById('pdf-preview-overlay');
+      const frame = document.getElementById('pdfPreviewFrame');
+      const titleEl = document.getElementById('pdfModalTitle');
+      const openTabBtn = document.getElementById('pdfOpenNewTabBtn');
+      const downloadBtn = document.getElementById('pdfDownloadBtn');
+      const footerMeta = document.getElementById('pdfFooterMeta');
+      const loader = document.getElementById('pdfLoadingIndicator');
+
+      if (overlay && frame) {
+        if (titleEl) titleEl.textContent = titleText || 'Pratinjau Dokumen';
+        if (openTabBtn) openTabBtn.href = pdfUrl;
+        if (downloadBtn) {
+          downloadBtn.href = pdfUrl;
+          downloadBtn.setAttribute('download', pdfUrl.split('/').pop());
+        }
+        if (footerMeta) footerMeta.textContent = pdfUrl;
+
+        if (loader) loader.style.display = 'flex';
+        frame.onload = function () {
+          if (loader) loader.style.display = 'none';
+        };
+
+        frame.src = pdfUrl;
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+      }
+    }
+
+    function closePdfModal() {
+      const overlay = document.getElementById('pdf-preview-overlay');
+      const frame = document.getElementById('pdfPreviewFrame');
+      const loader = document.getElementById('pdfLoadingIndicator');
+
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      if (frame) {
+        // Reset to about:blank to immediately release PDF engine memory
+        frame.src = 'about:blank';
+      }
+      if (loader) {
+        loader.style.display = 'none';
+      }
+      if (typeof window.playMechanicalClick === 'function') window.playMechanicalClick();
+    }
+
     // --- Modals Logic (Project Preview & CV Peek & Feedback) ---
     function openProjectPreview() {
       const overlay = document.getElementById('project-preview-overlay');
@@ -1563,6 +1745,7 @@ _Dikirim via Formulir Masukan Portofolio Lucky Yan Zuhara_`;
         closeProjectPreview();
         closeCvPeek();
         closeFeedbackModal();
+        closePdfModal();
       }
     });
 

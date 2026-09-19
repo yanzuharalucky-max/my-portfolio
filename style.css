@@ -2139,19 +2139,27 @@ a {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
+  align-items: stretch;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  height: 100%;
+  padding: 22px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Background layer for glow */
@@ -2164,8 +2172,8 @@ a {
   bottom: 0;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(56, 189, 248, 0.08),
-    transparent 40%
+    rgba(56, 189, 248, 0.12),
+    transparent 45%
   );
   opacity: 0;
   transition: opacity 0.3s;
@@ -2179,15 +2187,20 @@ a {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.12);
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 15px 35px -5px rgba(14, 165, 233, 0.25);
+}
+
+.project-card.featured {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.06) 0%, rgba(15, 23, 42, 0.82) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.38);
 }
 
 .project-card.featured:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-4px);
   border-color: #38bdf8;
-  box-shadow: 0 22px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 18px 40px -5px rgba(14, 165, 233, 0.3), 0 0 25px rgba(56, 189, 248, 0.2);
 }
 
 .project-card:hover::before, .profile-card:hover::before, .about-card:hover::before, .skill-panel:hover::before, .timeline-content:hover::before, .info-card:hover::before {
@@ -2195,11 +2208,7 @@ a {
 }
 
 .project-card:hover .card-preview {
-  transform: scale(1.03);
-}
-
-.project-card.featured {
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.03) 0%, rgba(255,255,255,0.01) 100%);
+  transform: scale(1.02);
 }
 
 .card-preview {
@@ -2318,37 +2327,55 @@ a {
 
 .project-links {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   margin-top: auto;
+  padding-top: 14px;
 }
 
-.project-links a {
+.project-links a,
+.project-links button {
+  flex: 1 1 0;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 9px 14px;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
-.project-links a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+.project-links a:hover,
+.project-links button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.project-links .btn-demo {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
 }
 
 .project-links .btn-demo:hover {
-  background: #38bdf8;
-  color: #0f172a;
-  border-color: #38bdf8;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
 }
 
 /* ========================================================================
@@ -3242,8 +3269,8 @@ body.intro-done #home .hero-photo-card,
   }
 }
 
-/* Tablet */
-@media screen and (max-width: 980px) {
+/* Tablet & Small Desktop (max-width: 992px) */
+@media screen and (max-width: 992px) {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -3276,12 +3303,14 @@ body.intro-done #home .hero-photo-card,
   }
 
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-
-  .hero-copy h1 {
-    font-size: 32px;
+  .hero-copy h1,
+  .hero-title,
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
 
   .contact-bento {
@@ -3551,9 +3580,9 @@ body.intro-done #home .hero-photo-card,
   .hero-title,
   .hero h1 {
     order: 3 !important;
-    font-size: clamp(1.55rem, 5.2vw, 2.1rem) !important;
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
     text-align: center !important;
-    line-height: 1.28 !important;
+    line-height: 1.25 !important;
     margin-top: 0 !important;
     margin-bottom: 14px !important;
     letter-spacing: -0.02em !important;
@@ -3798,12 +3827,15 @@ body.intro-done #home .hero-photo-card,
   .projects-grid {
     display: flex !important;
     flex-direction: column !important;
+    grid-template-columns: 1fr !important;
     gap: 24px !important;
     width: 100% !important;
   }
 
   .project-card {
     width: 100% !important;
+    padding: 18px 20px !important;
+    box-sizing: border-box !important;
   }
 
   .card-preview {
@@ -3814,15 +3846,20 @@ body.intro-done #home .hero-photo-card,
   .project-links {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: wrap !important;
     gap: 10px !important;
     width: 100% !important;
   }
 
-  .project-links a {
-    flex: 1 !important;
+  .project-links a,
+  .project-links button {
+    flex: 1 1 calc(50% - 5px) !important;
+    min-width: 0 !important;
     justify-content: center !important;
     text-align: center !important;
     padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+    box-sizing: border-box !important;
   }
 
   /* 7. Section 05: Pengalaman (Timeline Mobile) */
@@ -4025,6 +4062,45 @@ body.intro-done #home .hero-photo-card,
 
   .link-card:hover .arrow-icon {
     transform: translateY(-50%) translate(3px, -3px) !important;
+  }
+
+  .project-card {
+    padding: 14px 12px !important;
+  }
+
+  .project-research-card {
+    padding: 10px 12px !important;
+    margin: 10px 0 12px 0 !important;
+  }
+
+  .research-citation-text {
+    font-size: 0.78rem !important;
+  }
+
+  .research-verified-badge {
+    font-size: 0.68rem !important;
+    padding: 2.5px 6px !important;
+  }
+
+  .research-card-actions .btn-research-pdf,
+  .research-card-actions .btn-preview-modal-trigger {
+    padding: 7px 10px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .project-links a,
+  .project-links button {
+    padding: 8px 10px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .project-stack-pills {
+    gap: 4px !important;
+  }
+
+  .stack-pill {
+    font-size: 0.68rem !important;
+    padding: 2px 7px !important;
   }
 }
 
@@ -4904,13 +4980,15 @@ body.intro-done #home .hero-photo-card,
   border: 1px solid #cbd5e1 !important;
 }
 
-[data-theme="light"] .project-links a {
+[data-theme="light"] .project-links a,
+[data-theme="light"] .project-links button {
   color: #334155 !important;
   border: 1px solid #cbd5e1 !important;
   background: #ffffff !important;
 }
 
-[data-theme="light"] .project-links a:hover {
+[data-theme="light"] .project-links a:hover,
+[data-theme="light"] .project-links button:hover {
   background: #f1f5f9 !important;
   border-color: #0284c7 !important;
   color: #0284c7 !important;
@@ -5840,8 +5918,8 @@ html, body {
 
   .hero-title {
     order: 3 !important;
-    font-size: clamp(1.55rem, 5.2vw, 2.1rem) !important;
-    line-height: 1.3 !important;
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    line-height: 1.25 !important;
     text-align: center !important;
     margin-bottom: 14px !important;
   }
@@ -5940,6 +6018,37 @@ html, body {
 [data-theme="light"] .media-coverage-badge:hover {
   background: rgba(2, 132, 199, 0.14) !important;
   border-color: #0284c7 !important;
+}
+
+/* Project Highlight Badge (Cards 2 & 3) */
+.project-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 12px 0;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #cbd5e1;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.project-highlight-badge strong {
+  color: #38bdf8;
+}
+
+[data-theme="light"] .project-highlight-badge {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  color: #334155 !important;
+}
+
+[data-theme="light"] .project-highlight-badge strong {
+  color: #0284c7 !important;
 }
 
 /* Performance Metrics on Project Card */
@@ -6652,14 +6761,14 @@ html, body {
    Research Paper Glassmorphism Card (Seleno Lelang Project)
    ======================================================================== */
 .project-research-card {
-  margin: 14px 0 16px 0;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(15, 23, 42, 0.75) 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(56, 189, 248, 0.32);
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -6735,32 +6844,58 @@ html, body {
 .research-card-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 10px;
 }
 
-.btn-research-pdf {
+.research-card-actions .btn-research-pdf,
+.research-card-actions .btn-preview-modal-trigger {
+  flex: 1 1 0;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 7px 10px;
   border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.research-card-actions .btn-research-pdf {
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.22) 0%, rgba(2, 132, 199, 0.35) 100%);
   border: 1px solid rgba(56, 189, 248, 0.45);
   color: #e0f2fe;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
   box-shadow: 0 4px 14px rgba(14, 165, 233, 0.2);
 }
 
-.btn-research-pdf:hover {
+.research-card-actions .btn-research-pdf:hover {
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.38) 0%, rgba(2, 132, 199, 0.55) 100%);
   border-color: #38bdf8;
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+}
+
+.research-card-actions .btn-preview-modal-trigger {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(2, 132, 199, 0.45) 100%) !important;
+  border: 1px solid #38bdf8 !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
+}
+
+.research-card-actions .btn-preview-modal-trigger:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4) 0%, rgba(2, 132, 199, 0.65) 100%) !important;
+  box-shadow: 0 6px 22px rgba(56, 189, 248, 0.45);
+}
+
+.research-card-actions svg {
+  flex-shrink: 0;
 }
 
 .btn-research-pdf .arrow-ext {
@@ -6850,35 +6985,564 @@ html, body {
   color: #ffffff !important;
 }
 
-/* Mobile Responsiveness */
+/* Mobile Responsiveness for Research Card & Projects */
 @media screen and (max-width: 768px) {
   .project-research-card {
     padding: 12px 14px;
     margin: 12px 0 14px 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .research-verified-badge {
-    font-size: 0.69rem;
-    padding: 3px 8px;
+    font-size: 0.72rem;
+    padding: 3.5px 8px;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .research-citation-wrap {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .research-citation-text {
-    font-size: 0.81rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .research-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .research-card-actions .btn-research-pdf,
+  .research-card-actions .btn-preview-modal-trigger {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+    white-space: normal !important;
+    box-sizing: border-box !important;
   }
 
   .project-links {
     flex-wrap: wrap;
     gap: 8px;
+    width: 100%;
   }
 
   .btn-journal-secondary,
   .project-links a,
   .project-links button {
-    flex: 1 1 calc(50% - 6px);
+    flex: 1 1 calc(50% - 4px);
     justify-content: center;
-    font-size: 0.78rem;
-    padding: 7px 10px;
+    font-size: 0.8rem;
+    padding: 8px 10px;
     text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .project-card {
+    padding: 16px 14px !important;
+    margin-bottom: 8px;
+  }
+
+  .project-links {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .project-links a,
+  .project-links button {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    padding: 9px 12px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* ========================================================================
+   Instant Credential PDF Preview Modal (Enterprise Glassmorphism)
+   ======================================================================== */
+.pdf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 12, 22, 0.84);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdf-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pdf-modal-container {
+  width: 90vw;
+  height: 90vh;
+  max-width: 1200px;
+  max-height: 920px;
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.85),
+              0 0 45px rgba(56, 189, 248, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96) translateY(16px);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdf-modal-overlay.open .pdf-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+/* Modal Header */
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: rgba(15, 23, 42, 0.98);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.pdf-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pdf-modal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 12px #38bdf8;
+  flex-shrink: 0;
+  animation: pulse-green 2s infinite;
+}
+
+.pdf-modal-text-wrap {
+  min-width: 0;
+}
+
+.pdf-modal-category {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.pdf-modal-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 52vw;
+}
+
+/* Header Actions */
+.pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pdf-modal-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.pdf-modal-action-btn:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+  transform: translateY(-1px);
+}
+
+.pdf-modal-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pdf-modal-close-btn:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4);
+}
+
+/* PDF Viewer Body & Dynamic Loading State */
+.pdf-modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  background: #070a12;
+  overflow: hidden;
+}
+
+.pdf-loading-indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #090d16;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pdf-loading-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: pdf-spin 0.8s linear infinite;
+}
+
+@keyframes pdf-spin {
+  to { transform: rotate(360deg); }
+}
+
+.pdf-loading-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+.pdf-preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #070a12;
+  display: block;
+}
+
+/* Modal Footer */
+.pdf-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px;
+  background: rgba(11, 17, 32, 0.98);
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.pdf-footer-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdf-status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 2.5px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.pdf-footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.pdf-footer-tip {
+  color: #64748b;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pdf-footer-tip kbd {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+}
+
+/* ========================================================================
+   Trigger Buttons Polish Across Cards (.btn-preview-modal-trigger)
+   ======================================================================== */
+.cred-btn.btn-preview-modal-trigger {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18) 0%, rgba(14, 165, 233, 0.28) 100%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+  color: #e0f2fe !important;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.15);
+}
+
+.cred-btn.btn-preview-modal-trigger:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35) 0%, rgba(14, 165, 233, 0.5) 100%) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+}
+
+.btn-research-pdf.btn-preview-modal-trigger {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(2, 132, 199, 0.45) 100%);
+  border-color: #38bdf8;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
+}
+
+.btn-research-pdf.btn-preview-modal-trigger:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4) 0%, rgba(2, 132, 199, 0.65) 100%);
+  box-shadow: 0 6px 22px rgba(56, 189, 248, 0.45);
+}
+
+button.btn-journal-secondary.btn-preview-modal-trigger {
+  cursor: pointer;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+button.btn-journal-secondary.btn-preview-modal-trigger:hover {
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.5);
+}
+
+button.timeline-verify-btn.btn-preview-modal-trigger {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(14, 165, 233, 0.25) 100%);
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button.timeline-verify-btn.btn-preview-modal-trigger:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .pdf-modal-overlay {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+[data-theme="light"] .pdf-modal-container {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.25), 0 0 0 1px #e2e8f0 !important;
+}
+
+[data-theme="light"] .pdf-modal-header {
+  background: #f8fafc !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .pdf-modal-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .pdf-modal-action-btn {
+  color: #334155;
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .pdf-modal-action-btn:hover {
+  color: #0284c7;
+  background: #f0f9ff;
+  border-color: #38bdf8;
+}
+
+[data-theme="light"] .pdf-loading-indicator {
+  background: #f8fafc;
+}
+
+[data-theme="light"] .pdf-loading-text {
+  color: #64748b;
+}
+
+[data-theme="light"] .pdf-preview-iframe {
+  background: #f1f5f9;
+}
+
+[data-theme="light"] .pdf-modal-footer {
+  background: #f8fafc !important;
+  border-top-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .pdf-footer-meta {
+  color: #64748b;
+}
+
+[data-theme="light"] .pdf-footer-tip {
+  color: #64748b;
+}
+
+[data-theme="light"] .pdf-footer-tip kbd {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+[data-theme="light"] .cred-btn.btn-preview-modal-trigger {
+  background: #f0f9ff !important;
+  border-color: #38bdf8 !important;
+  color: #0284c7 !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
+}
+
+[data-theme="light"] .cred-btn.btn-preview-modal-trigger:hover {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+}
+
+[data-theme="light"] .btn-research-pdf.btn-preview-modal-trigger {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+[data-theme="light"] .btn-research-pdf.btn-preview-modal-trigger:hover {
+  background: #0369a1;
+  border-color: #0369a1;
+}
+
+[data-theme="light"] button.btn-journal-secondary.btn-preview-modal-trigger {
+  background: #f0f9ff !important;
+  color: #0284c7 !important;
+  border-color: #7dd3fc !important;
+}
+
+[data-theme="light"] button.btn-journal-secondary.btn-preview-modal-trigger:hover {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] button.timeline-verify-btn.btn-preview-modal-trigger {
+  background: #f0f9ff;
+  border-color: #7dd3fc;
+  color: #0284c7;
+}
+
+[data-theme="light"] button.timeline-verify-btn.btn-preview-modal-trigger:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+/* Mobile Responsiveness for PDF Modal */
+@media screen and (max-width: 768px) {
+  .pdf-modal-overlay {
+    padding: max(10px, env(safe-area-inset-top, 10px)) max(10px, env(safe-area-inset-right, 10px)) max(10px, env(safe-area-inset-bottom, 10px)) max(10px, env(safe-area-inset-left, 10px));
+  }
+
+  .pdf-modal-container {
+    width: 96vw;
+    height: 92vh;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .pdf-modal-header {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .pdf-modal-title {
+    font-size: 0.84rem;
+    max-width: 44vw;
+  }
+
+  .btn-text-hide-mobile {
+    display: none;
+  }
+
+  .pdf-modal-action-btn {
+    padding: 6px 9px;
+  }
+
+  .pdf-modal-close-btn {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .pdf-modal-footer {
+    padding: 8px 14px;
+  }
+
+  .pdf-footer-tip {
+    display: none;
   }
 }
 
