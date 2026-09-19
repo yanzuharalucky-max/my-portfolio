@@ -187,6 +187,10 @@ body.prevent-scroll {
 }
 
 /* Cinematic Shutter Exit Reveal */
+.splash-screen.shutter-open {
+  pointer-events: none !important;
+}
+
 .splash-screen.shutter-open .shutter-top {
   transform: translateY(-100%);
 }
@@ -1129,13 +1133,22 @@ a {
   background: rgba(56, 189, 248, 0.1);
 }
 
-/* --- Hero Bento Info Cards --- */
-.hero-bento {
-  display: flex;
+/* --- Hero Bento Info Cards / Metadata Glassmorphism Wrapper --- */
+.hero-bento,
+.hero-metadata-wrapper {
+  display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  max-width: 100%;
 }
 
 .hero-bento-card {
@@ -1145,15 +1158,16 @@ a {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 2.5px solid #38bdf8;
-  border-radius: 14px;
-  padding: 12px 18px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 8px;
+  padding: 8px 14px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
 }
 
 .hero-bento-card:hover {
   border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.06);
   transform: translateY(-3px);
   box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), 0 0 16px rgba(56, 189, 248, 0.15);
 }
@@ -1209,6 +1223,14 @@ a {
   box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8), 0 0 45px rgba(56, 189, 248, 0.2);
   overflow: hidden;
   z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.profile-card-elite:hover,
+.hero-photo-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2), 0 25px 50px -15px rgba(0, 0, 0, 0.8);
+  border-color: rgba(56, 189, 248, 0.4);
 }
 
 .profile-card-elite::before,
@@ -1257,6 +1279,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   border-radius: 22.5px;
   display: block;
   z-index: 1;
@@ -1277,25 +1300,29 @@ a {
   user-select: none;
   cursor: default;
   margin-top: 12px;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .marquee-wrapper {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .marquee-track {
   display: inline-flex;
   width: max-content;
   white-space: nowrap;
+  will-change: transform;
   animation: marquee 24s linear infinite;
-  transition: animation-duration 0.6s ease;
 }
 
 .marquee-track.slowed,
 .tech-marquee:hover .marquee-track {
-  animation-duration: 55s;
+  animation-play-state: paused;
 }
 
 .marquee-item {
@@ -1351,10 +1378,10 @@ a {
 
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -2684,39 +2711,208 @@ a {
   transform: translateX(4px);
 }
 
-.bento-row {
-  display: flex;
-  gap: 24px;
+/* --- Social Links Bento Grid --- */
+.social-links-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.link-card.col-span-3 {
+  grid-column: span 3;
+}
+
+.link-card.col-span-2 {
+  grid-column: span 2;
 }
 
 .link-card {
-  flex: 1;
+  background: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 16px 18px !important;
+  position: relative;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 104px;
+  text-decoration: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+}
+
+.link-card .card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 24px;
-  border-radius: 14px;
+  color: #f8fafc;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.link-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  width: 100%;
 }
 
 .link-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #f1f5f9;
+  line-height: 1.25;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.link-handle {
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  letter-spacing: -0.01em;
 }
 
 .arrow-icon {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  color: #94a3b8;
-  transition: transform 0.3s var(--ease), color 0.3s var(--ease), filter 0.3s var(--ease);
+  top: 16px;
+  right: 16px;
+  color: #64748b;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .link-card:hover .arrow-icon {
-  transform: translate(4px, -4px);
-  color: #38bdf8;
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+  transform: translate(3px, -3px);
+}
+
+/* Individual Brand Hover Effects */
+/* 1. Instagram: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) with soft box-shadow */
+.link-card.link-instagram:hover {
+  border-color: rgba(220, 39, 67, 0.6) !important;
+  box-shadow: 0 10px 28px -4px rgba(220, 39, 67, 0.35), 0 0 16px rgba(240, 148, 51, 0.2) !important;
+}
+
+.link-card.link-instagram:hover .card-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.4);
+}
+
+.link-card.link-instagram:hover .link-title {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.link-card.link-instagram:hover .arrow-icon {
+  color: #dc2743 !important;
+  filter: drop-shadow(0 0 8px rgba(220, 39, 67, 0.6));
+}
+
+/* 2. TikTok: Dual-tone cyan & red glow */
+.link-card.link-tiktok:hover {
+  border-color: rgba(37, 244, 238, 0.5) !important;
+  box-shadow: -4px 6px 24px -2px rgba(37, 244, 238, 0.25), 4px -6px 24px -2px rgba(254, 44, 85, 0.25) !important;
+}
+
+.link-card.link-tiktok:hover .card-icon {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(37, 244, 238, 0.35);
+}
+
+.link-card.link-tiktok:hover .link-title {
+  color: #25f4ee !important;
+  text-shadow: 2px 0 10px rgba(254, 44, 85, 0.5), -2px 0 10px rgba(37, 244, 238, 0.5);
+}
+
+.link-card.link-tiktok:hover .arrow-icon {
+  color: #25f4ee !important;
+  filter: drop-shadow(0 0 8px rgba(37, 244, 238, 0.7));
+}
+
+/* 3. Facebook: Facebook Blue #1877F2 */
+.link-card.link-facebook:hover {
+  border-color: rgba(24, 119, 242, 0.6) !important;
+  box-shadow: 0 10px 28px -4px rgba(24, 119, 242, 0.4), 0 0 16px rgba(24, 119, 242, 0.25) !important;
+}
+
+.link-card.link-facebook:hover .card-icon {
+  background: rgba(24, 119, 242, 0.15);
+  box-shadow: 0 0 16px rgba(24, 119, 242, 0.4);
+}
+
+.link-card.link-facebook:hover .link-title {
+  color: #1877F2 !important;
+  text-shadow: 0 0 12px rgba(24, 119, 242, 0.4);
+}
+
+.link-card.link-facebook:hover .arrow-icon {
+  color: #1877F2 !important;
+  filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.7));
+}
+
+/* 4. LinkedIn Brand Hover */
+.link-card.link-linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.6) !important;
+  box-shadow: 0 10px 28px -4px rgba(10, 102, 194, 0.35) !important;
+}
+
+.link-card.link-linkedin:hover .card-icon {
+  background: rgba(10, 102, 194, 0.15);
+  color: #0a66c2;
+  box-shadow: 0 0 16px rgba(10, 102, 194, 0.3);
+}
+
+.link-card.link-linkedin:hover .link-title {
+  color: #0a66c2 !important;
+}
+
+.link-card.link-linkedin:hover .arrow-icon {
+  color: #0a66c2 !important;
+  filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.6));
+}
+
+/* 5. GitHub Brand Hover */
+.link-card.link-github:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 10px 28px -4px rgba(255, 255, 255, 0.15) !important;
+}
+
+.link-card.link-github:hover .card-icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+}
+
+.link-card.link-github:hover .link-title {
+  color: #ffffff !important;
+}
+
+.link-card.link-github:hover .arrow-icon {
+  color: #ffffff !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
 .cv-card {
@@ -3171,10 +3367,15 @@ body.intro-done #home .hero-photo-card,
 
   .bento-col-left .bento-card:nth-child(1) { transition-delay: 0.04s; }
   .bento-col-left .bento-card:nth-child(2) { transition-delay: 0.12s; }
+  .bento-col-right .social-links-grid .link-card:nth-child(1),
   .bento-col-right .bento-row .link-card:nth-child(1) { transition-delay: 0.04s; }
-  .bento-col-right .bento-row .link-card:nth-child(2) { transition-delay: 0.10s; }
-  .bento-col-right .cv-card { transition-delay: 0.16s; }
-  .bento-col-right .status-widget { transition-delay: 0.22s; }
+  .bento-col-right .social-links-grid .link-card:nth-child(2),
+  .bento-col-right .bento-row .link-card:nth-child(2) { transition-delay: 0.08s; }
+  .bento-col-right .social-links-grid .link-card:nth-child(3) { transition-delay: 0.12s; }
+  .bento-col-right .social-links-grid .link-card:nth-child(4) { transition-delay: 0.16s; }
+  .bento-col-right .social-links-grid .link-card:nth-child(5) { transition-delay: 0.20s; }
+  .bento-col-right .cv-card { transition-delay: 0.24s; }
+  .bento-col-right .status-widget { transition-delay: 0.28s; }
 
   /* Hero Mobile Elements Always Instant Visible (Never Blank) */
   #home .hero-visual,
@@ -3246,15 +3447,17 @@ body.intro-done #home .hero-photo-card,
     display: none !important;
   }
 
-  /* 3. Section 01: Hero / Cover (Urutan Alami Mobile 1 - 7) */
+  /* 3. Section 01: Hero / Cover (Urutan Alami Mobile Sesuai Spesifikasi a - f) */
   .hero, #home {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 0 !important;
-    padding-top: 75px !important;
-    padding-bottom: 40px !important;
+    padding: 78px 18px 36px 18px !important;
     width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
     text-align: center !important;
   }
 
@@ -3262,30 +3465,53 @@ body.intro-done #home .hero-photo-card,
     display: contents !important;
   }
 
-  /* Posisi 1 (Paling Atas): Foto Profil */
-  .hero-visual {
+  /* Posisi 1 (a): Greeting & Status Badge ("Halo! Saya Lucky...") */
+  .hero-kicker-group {
     order: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px 10px !important;
+    margin: 0 auto 16px auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .greeting-badge,
+  .status-badge {
+    margin: 0 !important;
+    font-size: 0.82rem !important;
+    padding: 6px 14px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Posisi 2 (b): Kartu Foto Profil (di tengah dengan rasio proporsional) */
+  .hero-visual {
+    order: 2 !important;
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin: 10px auto 16px !important;
+    margin: 4px auto 20px auto !important;
   }
 
   .hero-visual .hero-photo-card,
   .hero-visual .profile-card-elite {
-    order: 1 !important;
-    width: 170px !important;
-    height: 170px !important;
-    max-width: 170px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 50% !important;
-    border: 2px solid #38bdf8 !important;
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 270px !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
     margin: 0 auto !important;
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25) !important;
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.7), 0 0 24px rgba(56, 189, 248, 0.16) !important;
     padding: 0 !important;
     overflow: hidden !important;
-    background: transparent !important;
+    background: rgba(15, 23, 42, 0.6) !important;
   }
 
   .hero-photo-card img,
@@ -3293,19 +3519,20 @@ body.intro-done #home .hero-photo-card,
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: 50% !important;
+    object-position: center 20% !important;
+    border-radius: 15px !important;
     display: block !important;
   }
 
   .profile-card-elite::before,
   .hero-photo-card::before {
-    border-radius: 50% !important;
+    border-radius: 16px !important;
   }
 
   .profile-card-elite::after,
   .hero-photo-card::after {
-    border-radius: 50% !important;
-    display: none !important;
+    border-radius: 15px !important;
+    display: block !important;
   }
 
   /* Sembunyikan badge melayang di atas foto agar tampilan mobile tetap bersih */
@@ -3320,79 +3547,83 @@ body.intro-done #home .hero-photo-card,
     display: none !important;
   }
 
-  /* Posisi 2: Badge Status (.hero-status "Open to Work") */
-  .hero-status,
-  .status-badge {
-    order: 2 !important;
-    margin: 0 auto 12px !important;
-    align-self: center !important;
-    display: inline-flex !important;
-    justify-content: center !important;
-  }
-
-  /* Posisi 3: Headline Utama (.hero-title) */
+  /* Posisi 3 (c): Headline Utama ("Membangun Sistem Web Modern...") */
   .hero-title,
   .hero h1 {
     order: 3 !important;
-    font-size: 1.8rem !important;
+    font-size: clamp(1.55rem, 5.2vw, 2.1rem) !important;
     text-align: center !important;
-    line-height: 1.25 !important;
+    line-height: 1.28 !important;
     margin-top: 0 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
     letter-spacing: -0.02em !important;
     width: 100% !important;
+    max-width: 600px !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
   }
 
-  /* Posisi 4: Bio Singkat (.hero-desc) */
+  /* Posisi 4 (d): Sub-headline / Bio Deskripsi */
   .hero-desc,
   .hero-text {
     order: 4 !important;
-    font-size: 0.88rem !important;
+    font-size: 0.9rem !important;
     text-align: center !important;
-    line-height: 1.6 !important;
+    line-height: 1.65 !important;
     color: #94a3b8 !important;
     margin-top: 0 !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 22px !important;
     width: 100% !important;
+    max-width: 520px !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
   }
 
-  /* Posisi 5: Tombol Aksi (.hero-cta) */
+  /* Posisi 5 (e): Tombol Aksi CTA (Lihat Proyek & Unduh CV) */
   .hero-cta,
   .hero-actions {
     order: 5 !important;
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: wrap !important;
     gap: 10px !important;
     justify-content: center !important;
     width: 100% !important;
+    max-width: 360px !important;
     margin-top: 0 !important;
     margin-bottom: 24px !important;
   }
 
   .hero-cta a,
   .hero-actions a {
-    flex: 1 !important;
+    flex: 1 1 0 !important;
     text-align: center !important;
     justify-content: center !important;
     padding: 12px 14px !important;
     font-size: 13px !important;
+    white-space: nowrap !important;
   }
 
-  /* Posisi 6: Bento Box Info */
-  .hero-bento {
+  /* Posisi 6 (f): Tag Metadata (Lokasi, Fokus, Pendidikan) */
+  .hero-bento,
+  .hero-metadata-wrapper {
     order: 6 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 8px !important;
     width: 100% !important;
+    max-width: 360px !important;
     margin-top: 0 !important;
     margin-bottom: 24px !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
   }
 
   .hero-bento-card {
     width: 100% !important;
-    padding: 12px 16px !important;
+    padding: 10px 14px !important;
     text-align: left !important;
+    box-sizing: border-box !important;
   }
 
   /* Posisi 7: Tech Marquee Ticker */
@@ -3401,7 +3632,7 @@ body.intro-done #home .hero-photo-card,
     width: calc(100% + 36px) !important;
     margin-left: -18px !important;
     margin-right: -18px !important;
-    margin-top: 15px !important;
+    margin-top: 10px !important;
     position: relative !important;
     bottom: auto !important;
     padding: 8px 0 !important;
@@ -3656,11 +3887,21 @@ body.intro-done #home .hero-photo-card,
     width: 100% !important;
   }
 
-  .bento-row {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 12px !important;
+  .bento-row,
+  .social-links-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
     width: 100% !important;
+  }
+
+  .link-card.col-span-3,
+  .link-card.col-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  .link-card.link-facebook {
+    grid-column: 1 / -1 !important;
   }
 
   .bento-card {
@@ -3705,10 +3946,34 @@ body.intro-done #home .hero-photo-card,
   }
 
   .link-card {
-    flex: 1 !important;
-    padding: 16px 16px !important;
-    min-height: 48px !important;
+    flex: none !important;
+    padding: 14px 14px !important;
+    min-height: 92px !important;
     min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .link-card .card-icon {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .link-card .card-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .link-title {
+    font-size: 0.88rem !important;
+  }
+
+  .link-handle {
+    font-size: 0.68rem !important;
+  }
+
+  .link-card .arrow-icon {
+    top: 12px !important;
+    right: 12px !important;
   }
 }
 
@@ -3731,12 +3996,35 @@ body.intro-done #home .hero-photo-card,
     letter-spacing: -0.02em !important;
   }
 
-  .bento-row {
+  .bento-row,
+  .social-links-grid {
+    grid-template-columns: 1fr !important;
     gap: 8px !important;
   }
 
+  .link-card.col-span-3,
+  .link-card.col-span-2,
+  .link-card.link-facebook {
+    grid-column: auto !important;
+  }
+
   .link-card {
-    padding: 14px 12px !important;
+    padding: 12px 14px !important;
+    min-height: 68px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .link-card .arrow-icon {
+    top: 50% !important;
+    right: 14px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .link-card:hover .arrow-icon {
+    transform: translateY(-50%) translate(3px, -3px) !important;
   }
 }
 
@@ -4791,9 +5079,19 @@ body.intro-done #home .hero-photo-card,
 [data-theme="light"] .link-card {
   background: #ffffff !important;
   border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
 }
 
 [data-theme="light"] .link-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .link-handle {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .link-card .card-icon {
+  background: #f1f5f9 !important;
   color: #0f172a !important;
 }
 
@@ -4801,8 +5099,29 @@ body.intro-done #home .hero-photo-card,
   color: #64748b !important;
 }
 
-[data-theme="light"] .link-card:hover .arrow-icon {
-  color: #0284c7 !important;
+[data-theme="light"] .link-card.link-instagram:hover {
+  border-color: #dc2743 !important;
+  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.2) !important;
+}
+
+[data-theme="light"] .link-card.link-tiktok:hover {
+  border-color: #0284c7 !important;
+  box-shadow: -3px 3px 20px rgba(0, 242, 234, 0.2), 3px -3px 20px rgba(254, 44, 85, 0.2) !important;
+}
+
+[data-theme="light"] .link-card.link-facebook:hover {
+  border-color: #1877F2 !important;
+  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.25) !important;
+}
+
+[data-theme="light"] .link-card.link-linkedin:hover {
+  border-color: #0077b5 !important;
+  box-shadow: 0 8px 24px rgba(0, 119, 181, 0.25) !important;
+}
+
+[data-theme="light"] .link-card.link-github:hover {
+  border-color: #0f172a !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15) !important;
 }
 
 [data-theme="light"] .cv-card {
@@ -5463,13 +5782,17 @@ html, body {
     height: 36px !important;
   }
 
-  /* Hero Kicker Mobile */
+  /* Hero Mobile Layout Order & Responsiveness (a - f) */
   .hero-kicker-group {
+    order: 1 !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
-    gap: 8px !important;
+    justify-content: center !important;
+    gap: 8px 10px !important;
     width: 100% !important;
+    margin: 0 auto 16px auto !important;
   }
 
   .greeting-badge,
@@ -5482,26 +5805,77 @@ html, body {
     box-sizing: border-box !important;
   }
 
+  .hero-visual {
+    order: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 4px auto 20px auto !important;
+  }
+
+  .hero-visual .hero-photo-card,
+  .hero-visual .profile-card-elite {
+    width: 100% !important;
+    max-width: 270px !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.7), 0 0 24px rgba(56, 189, 248, 0.16) !important;
+  }
+
+  .hero-photo-card img,
+  .profile-card-elite img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 15px !important;
+    display: block !important;
+  }
+
   .hero-title {
-    font-size: 1.6rem !important;
+    order: 3 !important;
+    font-size: clamp(1.55rem, 5.2vw, 2.1rem) !important;
     line-height: 1.3 !important;
     text-align: center !important;
+    margin-bottom: 14px !important;
   }
 
   .hero-desc {
+    order: 4 !important;
     font-size: 0.9rem !important;
     text-align: center !important;
+    line-height: 1.65 !important;
+    margin-bottom: 22px !important;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero-cta {
+    order: 5 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
-    width: 100% !important;
-  }
-
-  .hero-bento {
-    grid-template-columns: 1fr !important;
     gap: 10px !important;
     width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 24px auto !important;
+  }
+
+  .hero-bento,
+  .hero-metadata-wrapper {
+    order: 6 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 24px auto !important;
   }
 }
 
